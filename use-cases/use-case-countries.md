@@ -14,10 +14,10 @@ Failed End Condition: User doesnt gets any output, or the list showed is incorre
 
 Primary Actor: User from the organization
 
+
 Trigger: Show countries table request comes in
 
 ----------------------------------------
-
 MAIN SUCCESS SCENARIO
 
 1.User request a list of countries to our system
@@ -67,3 +67,4 @@ What if there ir any country which population number is not provided in the data
 SCHEDULE
 
 Due Date: 04/03/2022
+

@@ -40,13 +40,14 @@ EXTENSIONS
 
 <2c> <condition> : <Use the propper  SQL statement>
 
-User chooses the scope of a country>
+<User chooses the scope of a country>
 
 <2c> <condition> : <Use the propper  SQL statement>
 
-<User chooses the scope of a district>
+User chooses the scope of a district>
 
 <2c> <condition> : <Use the propper  SQL statement>
+
 
 <User chooses the scope of a city>
 
@@ -57,4 +58,5 @@ User chooses the scope of a country>
 SCHEDULE
 
 Due Date: 04/03/2022
+
 

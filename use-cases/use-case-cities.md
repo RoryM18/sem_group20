@@ -1,5 +1,6 @@
 CHARACTERISTIC INFORMATION
 
+
 Goal in Context: Show a sorted list of cities by largest population to smallest.
 
 Scope: Organisation
@@ -24,8 +25,10 @@ MAIN SUCCESS SCENARIO
 
 2.User decides the scope of the cities being compared
 
-3. The system shows the sorted list of countries to the user
+3.The system shows the sorted list of countries to the user
+
 ----------------------
+
 EXTENSIONS
 
 <User chooses the scope of the world>
@@ -43,6 +46,7 @@ EXTENSIONS
 <step altered> <condition> : <action or sub.use case>
 
 --------------------
+
 SUB-VARIATIONS
 
 User may use
@@ -55,7 +59,10 @@ User may use
 
 OPEN ISSUES (optional)
 
+
+
 ---------------------------
+
 SCHEDULE
 
 Due Date: 04/03/2022

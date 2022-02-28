@@ -1,5 +1,12 @@
 package com.napier.sem;
 
+/**
+ * Purpose: To store variables regarding the country class
+ * @author Group20
+ * @since 28/02/22
+ */
+
+
 public class Country {
 
 
@@ -9,27 +16,27 @@ public class Country {
     public String code;
 
     /**
-     *  Country Capital
+     * Country Capital
      */
     public int capital;
 
     /**
-     *  Country Code2
+     *   Country Code2
      */
     public String code2;
 
     /**
-     *  Country Continent
+     *   Country Continent
      */
     public String continent;
     /**
-     *  Country GNP
+     *   Country GNP
      */
 
     public double gnp;
 
     /**
-     *  Country GNPOld
+     *   Country GNPOld
      */
 
     public double gnpOld;
@@ -40,36 +47,36 @@ public class Country {
     public String govermentForm;
 
     /**
-     *  Country HeadOfState
+     * Country HeadOfState
      */
 
     public String HeadOfState;
     /**
-     *  Country IndepYear
+     * Country IndepYear
      */
 
     public int indepYear;
     /**
-     *  Country LifeExpectancy
+     * Country LifeExpectancy
      */
 
     public double lifeExpectancy;
 
     /**
-     *  Country LocalName
+     * Country LocalName
      */
     public String localName;
 
 
     /**
-     *  Country Name
+     * Country Name
      */
 public String name;
 
 
 
     /**
-     *  Country Population
+     *Country Population
      */
 
     public int population;
@@ -81,7 +88,7 @@ public String name;
     public String region;
 
     /**
-     *  Country SurfaceArea
+     * Country SurfaceArea
      */
     public double surfaceArea;
 
