@@ -17,6 +17,7 @@ Primary Actor: User from the organization
 Trigger: Show capital cities table request comes in
 
 ----------------------------------------
+
 MAIN SUCCESS SCENARIO
 
 1.User request a list of cities to our system
@@ -26,6 +27,7 @@ MAIN SUCCESS SCENARIO
 3.The system shows the sorted list of countries to the user
 
 ----------------------
+
 EXTENSIONS
 
 <User chooses the scope of the world>
@@ -43,6 +45,7 @@ EXTENSIONS
 <step altered> <condition> : <action or sub.use case>
 
 --------------------
+
 SUB-VARIATIONS
 
 User may choose the scope of
@@ -50,8 +53,15 @@ User may choose the scope of
 <2> <continent, region, country>
 
 ----------------------------
+
 OPEN ISSUES (optional)
 
+
+
 ---------------------------
+
 SCHEDULE
+
 Due Date: 04/03/2022
+
+

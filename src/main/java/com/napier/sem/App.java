@@ -1,11 +1,26 @@
 package com.napier.sem;
 
 import java.sql.*;
+import java.util.ArrayList;
 
+
+/**
+ * Purpose: To connect to the world database setup on my local mysql server, perform query and display results
+ * @author Group20
+ * @since  28/02/22
+ */
 public class App
 {
+
+    /**
+     * Name: main
+     * Purpose: To connect to the world database setup on my local mysql server, invoke functions display results and close the connection
+     * @param args are the input argurments
+     */
     public static void main(String[] args)
     {
+        App a = new App();
+
         try
         {
             // Load Database driver
@@ -46,6 +61,13 @@ public class App
             }
         }
 
+        // invoke a functinon to get the countris as an arraylist
+        ArrayList<Country> countries = a.getCountries(con);
+
+        // invoke a function to display the results of the query to the user
+        a.displayCountries(countries);
+
+        // invoke a function to close the connection between the database and this program
         if (con != null)
         {
             try
@@ -59,4 +81,70 @@ public class App
             }
         }
     }
+
+
+
+
+
+    /**
+     * Name: getCountries
+     * description: To return an arraylist of the countries within the world database
+     * @param con - A variable of type 'Connection' called con which uses the connection between the database
+     * and intellij / the program.
+     * @return an arraylist of the Country class
+     */
+    public ArrayList getCountries(Connection con)
+    {
+        try
+        {
+
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT Name, Population"
+                            + " FROM country "
+                           // + "WHERE emp_no = " + ID;
+                            + "ORDER BY Population DESC";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return countries
+            ArrayList countries = new ArrayList<Country>();
+            while (rset.next())
+            {
+                Country country = new Country();
+                country.name = rset.getString("Name");
+                country.population = rset.getInt("Population");
+                countries.add(country);
+            }
+            return countries;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get Country details");
+            return null;
+        }
+    }
+
+
+    /**
+     * Name: displayCountries
+     * description: Print the details to do with every country and their population in descending order
+     * @param countries Arraylist of the Country class
+     */
+    public void displayCountries(ArrayList<Country> countries)
+    {
+        for (Country country: countries) {
+
+            String details = ("\nName: " +
+                    country.name + "\nPopulation: "
+                            + country.population);
+
+            System.out.println(details);
+        }
+    }
+
+
+
 }
