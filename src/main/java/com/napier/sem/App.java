@@ -1,6 +1,7 @@
 package com.napier.sem;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class App
 {
@@ -58,5 +59,103 @@ public class App
                 System.out.println("Error closing connection to database");
             }
         }
+
+
+            // Create new Application
+            App a = new App();
+
+            // Connect to database
+
+
+        ArrayList<Country> countries = a.getCountry();
+
+
+
+        a.displayCountry(countries);
+
+            // Get Employee
+           // Employee emp = a.getEmployee(255530);
+            // Display results
+           // a.displayEmployee(emp);
+
+            // Disconnect from database
+          //  a.disconnect();
+
+
     }
+
+
+
+
+
+
+    public ArrayList getCountry()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT Name, Population"
+                            + "FROM country "
+                           // + "WHERE emp_no = " + ID;
+                            + "ORDER BY Population DESC";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return new employee if valid.
+            // Check one is returned
+            ArrayList countries = new ArrayList<Country>();
+            while (rset.next())
+            {
+                Country country = new Country();
+                country.name = rset.getString("Name");
+                country.population = rset.getInt("Population");
+               // .emp_no = rset.getInt("emp_no");
+               // emp.first_name = rset.getString("first_name");
+               // emp.last_name = rset.getString("last_name");
+                countries.add(country);
+            }
+            return countries;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get Country details");
+            return null;
+        }
+    }
+
+
+    public void displayCountry(ArrayList<Country> countries)
+    {
+
+        System.out.println(String.format("name", "population"));
+
+
+
+        for (Country country: countries) {
+
+            String details = ("Name: " +
+                    country.name + " \n Population: "
+                            + country.population);
+
+            System.out.println(details);
+        }
+
+
+          //  System.out.println(
+            //        emp.emp_no + " "
+             ////               + emp.first_name + " "
+             //               + emp.last_name + "\n"
+              //              + emp.title + "\n"
+              //              + "Salary:" + emp.salary + "\n"
+              //              + emp.dept_name + "\n"
+               //             + "Manager: " + emp.manager + "\n");
+
+
+    }
+
+
+
 }
