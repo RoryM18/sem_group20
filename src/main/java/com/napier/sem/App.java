@@ -67,7 +67,7 @@ public class App
         ArrayList<City> cities = a.getCities(con);
 
         // invoke a function to display the results of the query to the user
-        a.displayCountries(countries);
+        //a.displayCountries(countries);
 
         a.displayCities(cities);
 
