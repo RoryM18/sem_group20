@@ -64,8 +64,12 @@ public class App
         // invoke a functinon to get the countris as an arraylist
         ArrayList<Country> countries = a.getCountries(con);
 
+        ArrayList<City> cities = a.getCities(con);
+
         // invoke a function to display the results of the query to the user
         a.displayCountries(countries);
+
+        a.displayCities(cities);
 
         // invoke a function to close the connection between the database and this program
         if (con != null)
@@ -145,6 +149,49 @@ public class App
         }
     }
 
+    public ArrayList getCities(Connection con)
+    {
+        try
+        {
 
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT Name, Population"
+                            + " FROM city "
+                            + "ORDER BY Population DESC";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return countries
+            ArrayList cities = new ArrayList<City>();
+            while (rset.next())
+            {
+                City city = new City();
+                city.name = rset.getString("Name");
+                city.population = rset.getInt("Population");
+                city.add(city);
+            }
+            return cities;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get City details");
+            return null;
+        }
+    }
+
+    public void displayCities(ArrayList<City> cities)
+    {
+        for (City city: cities) {
+
+            String details = ("\nName: " +
+                    city.name + "\nPopulation: "
+                    + city.population);
+
+            System.out.println(details);
+        }
+    }
 
 }
