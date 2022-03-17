@@ -170,6 +170,7 @@ public class App
                 City city = new City();
                 city.name = rset.getString("Name");
                 city.population = rset.getInt("Population");
+                cities.add(city);
             }
             return cities;
         }
@@ -192,4 +193,5 @@ public class App
             System.out.println(details);
         }
     }
+
 }
