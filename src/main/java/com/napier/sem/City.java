@@ -11,7 +11,4 @@ public class City {
     public String district;
 
     public int population;
-
-    public void add(City city) {
-    }
 }
