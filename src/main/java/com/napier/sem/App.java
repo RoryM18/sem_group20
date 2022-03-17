@@ -158,9 +158,9 @@ public class App
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT Name, Population"
-                            + " FROM city "
-                            + "ORDER BY Population DESC";
+                    "SELECT city.Name, city.Population "
+                            + " FROM City "
+                            + "ORDER BY Population DESC ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return countries
@@ -193,5 +193,4 @@ public class App
             System.out.println(details);
         }
     }
-
 }
