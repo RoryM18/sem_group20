@@ -230,8 +230,7 @@ public class App
             String strSelect =
                     "SELECT city.name, city.population "
                             + " FROM city, country "
-                            + "WHERE city.code = country.code "
-                            + "AND country.continent = 'Africa' "
+                            + "WHERE country.continent = 'Africa' "
                             + "ORDER BY Population DESC ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
