@@ -64,11 +64,13 @@ public class App
         // invoke a functinon to get the countris as an arraylist
         ArrayList<Country> countries = a.getCountries(con);
 
+        // invoke a function to get the Cities as an arraylist
         ArrayList<City> cities = a.getCities(con);
 
         // invoke a function to display the results of the query to the user
         a.displayCountries(countries);
 
+        // Invoke a function to display the results of the query to the user
         a.displayCities(cities);
 
         // invoke a function to close the connection between the database and this program
@@ -149,6 +151,13 @@ public class App
         }
     }
 
+    /**
+     * Name: getCities
+     * description: To return an arraylist of the cities within the world database
+     * @param con - A variable of type 'Connection' called con which uses the connection between the database
+     * and intellij / the program.
+     * @return an arraylist of the City class
+     */
     public ArrayList getCities(Connection con)
     {
         try
@@ -182,6 +191,11 @@ public class App
         }
     }
 
+    /**
+     * Name: displayCities
+     * description: Print the details to do with every city and their population in descending order
+     * @param cities Arraylist of the Country class
+     */
     public void displayCities(ArrayList<City> cities)
     {
         for (City city: cities) {
