@@ -169,7 +169,7 @@ public class App
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT Name, Country, District, Population "
+                    "SELECT Name, District, Population "
                             + " FROM city "
                             + "ORDER BY Population DESC ";
             // Execute SQL statement
@@ -180,7 +180,6 @@ public class App
             {
                 City city = new City();
                 city.name = rset.getString("Name");
-                city.CountryCode = rset.getString("Country");
                 city.district = rset.getString("District");
                 city.population = rset.getInt("Population");
                 cities.add(city);
