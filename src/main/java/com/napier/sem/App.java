@@ -67,11 +67,15 @@ public class App
         // invoke a function to get the Cities as an arraylist
         ArrayList<City> cities = a.getCities(con);
 
+        ArrayList<City> citiesContinent = a.getCitiesByAContinent(con);
+
         // invoke a function to display the results of the query to the user
-        a.displayCountries(countries);
+        //a.displayCountries(countries);
 
         // Invoke a function to display the results of the query to the user
-        a.displayCities(cities);
+        //a.displayCities(cities);
+
+        a.displayCitiesByContinent(citiesContinent);
 
         // invoke a function to close the connection between the database and this program
         if (con != null)
@@ -207,4 +211,63 @@ public class App
             System.out.println(details);
         }
     }
+
+    /**
+     * Name: getCitiesInAContinent
+     * description: To return an arraylist of the cities within the world database
+     * @param con - A variable of type 'Connection' called con which uses the connection between the database
+     * and intellij / the program.
+     * @return an arraylist of the City class
+     */
+    public ArrayList getCitiesByAContinent(Connection con)
+    {
+        try
+        {
+
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT city.name, city.population "
+                            + " FROM city, country "
+                            + "WHERE country.continent = 'Africa' "
+                            + "ORDER BY Population DESC ";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return countries
+            ArrayList cities = new ArrayList<City>();
+            while (rset.next())
+            {
+                City city = new City();
+                city.name = rset.getString("Name");
+                city.population = rset.getInt("Population");
+                cities.add(city);
+            }
+            return cities;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get City details");
+            return null;
+        }
+    }
+
+    /**
+     * Name: displayCities
+     * description: Print the details to do with every city and their population in descending order
+     * @param cities Arraylist of the Country class
+     */
+    public void displayCitiesByContinent(ArrayList<City> cities)
+    {
+        for (City city: cities) {
+
+            String details = ("\nName: " +
+                    city.name + "\nPopulation: "
+                    + city.population);
+
+            System.out.println(details);
+        }
+    }
+
 }
