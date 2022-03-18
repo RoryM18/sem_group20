@@ -204,7 +204,9 @@ public class App
         for (City city: cities) {
 
             String details = ("\nName: " +
-                    city.name + "\nPopulation: "
+                    city.name + "\nDistrict: "
+                    + city.district
+                    + "\nPopulation: "
                     + city.population);
 
             System.out.println(details);
