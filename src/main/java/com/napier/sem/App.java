@@ -67,15 +67,13 @@ public class App
         // invoke a function to get the Cities as an arraylist
         ArrayList<City> cities = a.getCities(con);
 
-        ArrayList<City> citiesContinent = a.getCitiesByAContinent(con);
+        //ArrayList<City> citiesContinent = a.getCitiesByAContinent(con);
 
         // invoke a function to display the results of the query to the user
         //a.displayCountries(countries);
 
         // Invoke a function to display the results of the query to the user
-        //a.displayCities(cities);
-
-        a.displayCitiesByContinent(citiesContinent);
+        a.displayCities(cities);
 
         // invoke a function to close the connection between the database and this program
         if (con != null)
@@ -171,7 +169,7 @@ public class App
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT Name, Population "
+                    "SELECT Name, Country, District, Population "
                             + " FROM city "
                             + "ORDER BY Population DESC ";
             // Execute SQL statement
@@ -182,6 +180,8 @@ public class App
             {
                 City city = new City();
                 city.name = rset.getString("Name");
+                city.CountryCode = rset.getString("Country");
+                city.district = rset.getString("District");
                 city.population = rset.getInt("Population");
                 cities.add(city);
             }
@@ -252,22 +252,4 @@ public class App
             return null;
         }
     }
-
-    /**
-     * Name: displayCities
-     * description: Print the details to do with every city and their population in descending order
-     * @param cities Arraylist of the Country class
-     */
-    public void displayCitiesByContinent(ArrayList<City> cities)
-    {
-        for (City city: cities) {
-
-            String details = ("\nName: " +
-                    city.name + "\nPopulation: "
-                    + city.population);
-
-            System.out.println(details);
-        }
-    }
-
 }
