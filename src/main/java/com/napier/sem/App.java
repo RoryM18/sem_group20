@@ -158,7 +158,7 @@ public class App
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.Name, city.Population "
+                    "SELECT Name, Population "
                             + " FROM City "
                             + "ORDER BY Population DESC ";
             // Execute SQL statement
