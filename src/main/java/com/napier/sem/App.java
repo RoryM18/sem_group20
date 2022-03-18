@@ -159,7 +159,7 @@ public class App
             // Create string for SQL statement
             String strSelect =
                     "SELECT Name, Population "
-                            + " FROM City "
+                            + " FROM city "
                             + "ORDER BY Population DESC ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
