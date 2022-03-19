@@ -66,14 +66,17 @@ public class App
 
         // invoke a function to get the Cities as an arraylist
         ArrayList<City> cities = a.getCities(con);
+        // Invoke a function to display the results of the query to the user
+        a.displayCities(cities);
 
-        //ArrayList<City> citiesContinent = a.getCitiesByAContinent(con);
+        cities = a.getCitiesByAContinent(con);
+        // Invoke a function to display the results of the query to the user
+        a.displayCities(cities);
 
         // invoke a function to display the results of the query to the user
         //a.displayCountries(countries);
 
-        // Invoke a function to display the results of the query to the user
-        a.displayCities(cities);
+
 
         // invoke a function to close the connection between the database and this program
         if (con != null)
