@@ -169,8 +169,8 @@ public class App
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.Name, city.District, city.Population "
-                            + " FROM city, coumtry "
+                    "SELECT Name, Country, District, Population "
+                            + " FROM city "
                             + "ORDER BY Population DESC ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -229,7 +229,7 @@ public class App
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.name, city.population "
+                    "SELECT city.name, city.district city.population "
                             + " FROM city, country "
                             + "WHERE country.continent = 'Africa' "
                             + "ORDER BY Population DESC ";
@@ -241,6 +241,7 @@ public class App
             {
                 City city = new City();
                 city.name = rset.getString("Name");
+                city.district = rset.getString("District");
                 city.population = rset.getInt("Population");
                 cities.add(city);
             }
