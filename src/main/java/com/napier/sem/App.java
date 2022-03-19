@@ -210,7 +210,7 @@ public class App
         {
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.name, city.district city.population "
+                    "SELECT city.Name, city.District, city.Population "
                             + " FROM city, country "
                             + "WHERE country.Continent = 'Africa' "
                             + "ORDER BY population DESC ";
