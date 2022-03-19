@@ -227,15 +227,13 @@ public class App
     {
         try
         {
-
-            // Create an SQL statement
-            Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
                     "SELECT city.name, city.district city.population "
                             + " FROM city, country "
-                            + "WHERE country.continent = 'Africa' "
-                            + "ORDER BY Population DESC ";
+                            + "WHERE country.Continent = 'Africa' "
+                            + "ORDER BY population DESC ";
+            PreparedStatement stmt = con.prepareStatement(strSelect);
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return countries
