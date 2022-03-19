@@ -24,6 +24,13 @@ public class City {
     public String countryCode;
 
     /**
+     *  City's country
+     */
+    public String country;
+
+
+
+    /**
      *  City district
      */
     public String district;
