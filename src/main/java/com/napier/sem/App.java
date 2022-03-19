@@ -198,25 +198,6 @@ public class App
     }
 
     /**
-     * Name: displayCities
-     * description: Print the details to do with every city and their population in descending order
-     * @param cities Arraylist of the Country class
-     */
-    public void displayCities(ArrayList<City> cities)
-    {
-        for (City city: cities) {
-
-            String details = ("\nName: " +
-                    city.name + "\nDistrict: "
-                    + city.district
-                    + "\nPopulation: "
-                    + city.population);
-
-            System.out.println(details);
-        }
-    }
-
-    /**
      * Name: getCitiesInAContinent
      * description: To return an arraylist of the cities within the world database
      * @param con - A variable of type 'Connection' called con which uses the connection between the database
@@ -253,6 +234,25 @@ public class App
             System.out.println(e.getMessage());
             System.out.println("Failed to get City details");
             return null;
+        }
+    }
+
+    /**
+     * Name: displayCities
+     * description: Print the details to do with every city and their population in descending order
+     * @param cities Arraylist of the Country class
+     */
+    public void displayCities(ArrayList<City> cities)
+    {
+        for (City city: cities) {
+
+            String details = ("\nName: " +
+                    city.name + "\nDistrict: "
+                    + city.district
+                    + "\nPopulation: "
+                    + city.population);
+
+            System.out.println(details);
         }
     }
 }
