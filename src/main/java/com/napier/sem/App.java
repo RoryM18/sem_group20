@@ -66,14 +66,17 @@ public class App
 
         // invoke a function to get the Cities as an arraylist
         ArrayList<City> cities = a.getCities(con);
+        // Invoke a function to display the results of the query to the user
+        a.displayCities(cities);
 
-        //ArrayList<City> citiesContinent = a.getCitiesByAContinent(con);
+        cities = a.getCitiesByAContinent(con);
+        // Invoke a function to display the results of the query to the user
+        a.displayCities(cities);
 
         // invoke a function to display the results of the query to the user
         //a.displayCountries(countries);
 
-        // Invoke a function to display the results of the query to the user
-        a.displayCities(cities);
+
 
         // invoke a function to close the connection between the database and this program
         if (con != null)
@@ -169,9 +172,49 @@ public class App
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.Name, city.District, city.Population "
-                            + " FROM city, coumtry "
+                    "SELECT Name, District, Population "
+                            + " FROM city "
                             + "ORDER BY Population DESC ";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return countries
+            ArrayList cities = new ArrayList<City>();
+            while (rset.next())
+            {
+                City city = new City();
+                city.name = rset.getString("Name");
+                city.district = rset.getString("District");
+                city.population = rset.getInt("Population");
+                cities.add(city);
+            }
+            return cities;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get City details");
+            return null;
+        }
+    }
+
+    /**
+     * Name: getCitiesInAContinent
+     * description: To return an arraylist of the cities within the world database
+     * @param con - A variable of type 'Connection' called con which uses the connection between the database
+     * and intellij / the program.
+     * @return an arraylist of the City class
+     */
+    public ArrayList getCitiesByAContinent(Connection con)
+    {
+        try
+        {
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT city.Name, city.District, city.Population "
+                            + " FROM city, country "
+                            + "WHERE country.Continent = 'Africa' "
+                            + "ORDER BY population DESC ";
+            PreparedStatement stmt = con.prepareStatement(strSelect);
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return countries
@@ -210,47 +253,6 @@ public class App
                     + city.population);
 
             System.out.println(details);
-        }
-    }
-
-    /**
-     * Name: getCitiesInAContinent
-     * description: To return an arraylist of the cities within the world database
-     * @param con - A variable of type 'Connection' called con which uses the connection between the database
-     * and intellij / the program.
-     * @return an arraylist of the City class
-     */
-    public ArrayList getCitiesByAContinent(Connection con)
-    {
-        try
-        {
-
-            // Create an SQL statement
-            Statement stmt = con.createStatement();
-            // Create string for SQL statement
-            String strSelect =
-                    "SELECT city.name, city.population "
-                            + " FROM city, country "
-                            + "WHERE country.continent = 'Africa' "
-                            + "ORDER BY Population DESC ";
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
-            // Return countries
-            ArrayList cities = new ArrayList<City>();
-            while (rset.next())
-            {
-                City city = new City();
-                city.name = rset.getString("Name");
-                city.population = rset.getInt("Population");
-                cities.add(city);
-            }
-            return cities;
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get City details");
-            return null;
         }
     }
 }
