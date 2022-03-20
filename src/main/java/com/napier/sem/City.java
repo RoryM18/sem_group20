@@ -23,6 +23,7 @@ public class City {
      */
     public String countryCode;
 
+
     /**
      *  City's country
      */
