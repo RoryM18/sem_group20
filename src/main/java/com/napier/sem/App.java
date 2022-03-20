@@ -2,7 +2,6 @@ package com.napier.sem;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 
 /**
@@ -20,7 +19,6 @@ public class App
      */
     public static void main(String[] args)
     {
-
         App a = new App();
 
         try
@@ -63,34 +61,19 @@ public class App
             }
         }
 
+        // invoke a functinon to get the countris as an arraylist
+        ArrayList<Country> countries = a.getCountries(con);
 
-        //Query 1: All the cities in the world organised by largest population to smallest.
-        // invoke a function to get the cities as an arraylist
+        // invoke a function to get the Cities as an arraylist
         ArrayList<City> cities = a.getCities(con);
+
+        //ArrayList<City> citiesContinent = a.getCitiesByAContinent(con);
+
         // invoke a function to display the results of the query to the user
-        a.displayCountries(cities, "Query 1: All the cities in the world organised by largest population to smallest. ");
-        cities.clear();
+        //a.displayCountries(countries);
 
-
-
-        //Query 2: All the cities in a continent organised by largest population to smallest.
-        // invoke a function to get the cities as an arraylist
-        cities = a.getCitiesFromContinent(con);
-        // invoke a function to display the results of the query to the user
-        a.displayCountries(cities, "Query 2: All the cities in a continent organised by largest population to smallest. ");
-        cities.clear();
-
-        //Query 3: All the cities in a region organised by largest population to smallest.
-        // invoke a function to get the cities as an arraylist
-        cities = a.getCitiesFromRegion(con);
-        // invoke a function to display the results of the query to the user
-        a.displayCountries(cities, "Query 2: All the cities in a region organised by largest population to smallest. ");
-        cities.clear();
-
-
-
-
-
+        // Invoke a function to display the results of the query to the user
+        a.displayCities(cities);
 
         // invoke a function to close the connection between the database and this program
         if (con != null)
@@ -112,43 +95,37 @@ public class App
 
 
     /**
-     * Name: getCities / Query 1
-     * description: Generate a report of all cities in the world by largest population to smallest.
+     * Name: getCountries
+     * description: To return an arraylist of the countries within the world database
      * @param con - A variable of type 'Connection' called con which uses the connection between the database
      * and intellij / the program.
-     * @return an arraylist of the Cities class
+     * @return an arraylist of the Country class
      */
-    public ArrayList getCities(Connection con)
+    public ArrayList getCountries(Connection con)
     {
-
         try
         {
 
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.Name, country.Name, city.District, city.Population "
-                            + "FROM city JOIN country ON (country.Code = city.CountryCode) "
+                    "SELECT Name, Population"
+                            + " FROM country "
+                           // + "WHERE emp_no = " + ID;
                             + "ORDER BY Population DESC";
             // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
             // Return countries
-
-
-            PreparedStatement stmt1 = con.prepareStatement(strSelect);
-            ResultSet rs = stmt1.executeQuery();
-
-            ArrayList cities = new ArrayList<City>();
-            while (rs.next())
+            ArrayList countries = new ArrayList<Country>();
+            while (rset.next())
             {
-
-                City city = new City();
-                city.name = rs.getString("city.Name");
-                city.country = rs.getString("Country.Name");
-                city.district = rs.getString("District");
-                city.population = rs.getInt("Population");
-
-                cities.add(city);
+                Country country = new Country();
+                country.name = rset.getString("Name");
+                country.population = rset.getInt("Population");
+                countries.add(country);
             }
-            return cities;
+            return countries;
         }
         catch (Exception e)
         {
@@ -159,130 +136,121 @@ public class App
     }
 
 
-
-
     /**
-     * Name: getCitiesFromCities / Query 2
-     * description: Generate a report of all cities in a continent by largest population to smallest.
-     * @param con - A variable of type 'Connection' called con which uses the connection between the database
-     * and intellij / the program.
-     * @return an arraylist of the Cities class
+     * Name: displayCountries
+     * description: Print the details to do with every country and their population in descending order
+     * @param countries Arraylist of the Country class
      */
-    public ArrayList getCitiesFromContinent(Connection con)
+    public void displayCountries(ArrayList<Country> countries)
     {
+        for (Country country: countries) {
 
-        try
-        {
-
-            // Create string for SQL statement
-            String strSelect =
-                    "SELECT city.Name, country.Name, city.District, city.Population "
-                            + "FROM city JOIN country ON (country.Code = city.CountryCode) "
-                            + "WHERE country.Continent = 'Oceania' "
-                            + "ORDER BY city.Population DESC";
-            // Execute SQL statement
-            // Return countries
-
-            PreparedStatement stmt1 = con.prepareStatement(strSelect);
-            ResultSet rs = stmt1.executeQuery();
-
-            ArrayList cities = new ArrayList<City>();
-            while (rs.next())
-            {
-
-                City city = new City();
-                city.name = rs.getString("city.Name");
-                city.country = rs.getString("Country.Name");
-                city.district = rs.getString("District");
-                city.population = rs.getInt("Population");
-
-                cities.add(city);
-            }
-            return cities;
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get Country details");
-            return null;
-        }
-    }
-
-
-
-
-    /**
-     * Name: getCitiesFromCities / Query 3
-     * description: Generate a report of all cities in a region by largest population to smallest.
-     * @param con - A variable of type 'Connection' called con which uses the connection between the database
-     * and intellij / the program.
-     * @return an arraylist of the Cities class
-     */
-    public ArrayList getCitiesFromRegion(Connection con)
-    {
-
-        try
-        {
-
-            // Create string for SQL statement
-            String strSelect =
-                    "SELECT city.Name, country.Name, city.District, city.Population "
-                            + "FROM city JOIN country ON (country.Code = city.CountryCode) "
-                            + "WHERE country.Region = 'British Islands' "
-                            + "ORDER BY city.Population DESC";
-            // Execute SQL statement
-            // Return countries
-
-            PreparedStatement stmt1 = con.prepareStatement(strSelect);
-            ResultSet rs = stmt1.executeQuery();
-
-            ArrayList cities = new ArrayList<City>();
-            while (rs.next())
-            {
-
-                City city = new City();
-                city.name = rs.getString("city.Name");
-                city.country = rs.getString("Country.Name");
-                city.district = rs.getString("District");
-                city.population = rs.getInt("Population");
-
-                cities.add(city);
-            }
-            return cities;
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get Country details");
-            return null;
-        }
-    }
-
-
-
-    /**
-     * Name: displayCities
-     * description: Print the details to do with every city in the arraylist
-     * @param cities Arraylist of the City class
-     */
-    public void displayCountries(ArrayList<City> cities, String queryName)
-    {
-        // Print out query name
-        System.out.println(queryName);
-
-
-        // Print out the queries in the arraylist
-        for (City city: cities) {
-
-            String details = ("" + city.name + ", " + city.country +
-                    ", " + city.district + ", " + city.population);
+            String details = ("\nName: " +
+                    country.name + "\nPopulation: "
+                            + country.population);
 
             System.out.println(details);
         }
-
-        System.out.println("\n\n\n");
     }
 
+    /**
+     * Name: getCities
+     * description: To return an arraylist of the cities within the world database
+     * @param con - A variable of type 'Connection' called con which uses the connection between the database
+     * and intellij / the program.
+     * @return an arraylist of the City class
+     */
+    public ArrayList getCities(Connection con)
+    {
+        try
+        {
 
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT city.Name, city.District, city.Population "
+                            + " FROM city, coumtry "
+                            + "ORDER BY Population DESC ";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return countries
+            ArrayList cities = new ArrayList<City>();
+            while (rset.next())
+            {
+                City city = new City();
+                city.name = rset.getString("Name");
+                city.district = rset.getString("District");
+                city.population = rset.getInt("Population");
+                cities.add(city);
+            }
+            return cities;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get City details");
+            return null;
+        }
+    }
 
+    /**
+     * Name: displayCities
+     * description: Print the details to do with every city and their population in descending order
+     * @param cities Arraylist of the Country class
+     */
+    public void displayCities(ArrayList<City> cities)
+    {
+        for (City city: cities) {
+
+            String details = ("\nName: " +
+                    city.name + "\nDistrict: "
+                    + city.district
+                    + "\nPopulation: "
+                    + city.population);
+
+            System.out.println(details);
+        }
+    }
+
+    /**
+     * Name: getCitiesInAContinent
+     * description: To return an arraylist of the cities within the world database
+     * @param con - A variable of type 'Connection' called con which uses the connection between the database
+     * and intellij / the program.
+     * @return an arraylist of the City class
+     */
+    public ArrayList getCitiesByAContinent(Connection con)
+    {
+        try
+        {
+
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT city.name, city.population "
+                            + " FROM city, country "
+                            + "WHERE country.continent = 'Africa' "
+                            + "ORDER BY Population DESC ";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return countries
+            ArrayList cities = new ArrayList<City>();
+            while (rset.next())
+            {
+                City city = new City();
+                city.name = rset.getString("Name");
+                city.population = rset.getInt("Population");
+                cities.add(city);
+            }
+            return cities;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get City details");
+            return null;
+        }
+    }
 }
