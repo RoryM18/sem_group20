@@ -373,7 +373,7 @@ public class App
                     "SELECT city.Name, country.Name, city.District, city.Population "
                             + " FROM city JOIN country ON (city.CountryCode = country.Code) "
                             + " ORDER BY Population DESC"
-                            + "LIMIT 10 ";
+                            + " LIMIT 10 ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return countries
