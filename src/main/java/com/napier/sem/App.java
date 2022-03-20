@@ -148,7 +148,7 @@ public class App
          * @return an arraylist of the city class      */
         cities = a.getLargestPopulatedCitiesFromADistrict(con);
         // Invoke a function to display the results of the query to the user
-        a.displayCities(cities, "Query 9: return an arraylist of the selected number of cities within world of a selected District");
+        a.displayCities(cities, "Query 10: return an arraylist of the selected number of cities within world of a selected District");
 
 
 
