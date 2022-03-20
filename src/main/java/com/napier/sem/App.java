@@ -110,6 +110,14 @@ public class App
         // Invoke a function to display the results of the query to the user
         a.displayCities(cities, "Query 5: return an arraylist of the cities within a District");
 
+        /**Name: getLargestPopulatedCitiesFromWorld / Query 6
+         *description: To return an arraylist of the selected number of cities within world
+         * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
+         * @return an arraylist of the city class      */
+        cities = a.getLargestPopulatedCitiesFromWorld(con);
+        // Invoke a function to display the results of the query to the user
+        a.displayCities(cities, "Query 6: return an arraylist of the selected number of cities within world");
+
 
 
         // invoke a function to close the connection between the database and this program
@@ -346,7 +354,48 @@ public class App
         }
     }
 
+    /**
+     * Name: getCities
+     * description: To return an arraylist of the cities within the world database
+     * @param con - A variable of type 'Connection' called con which uses the connection between the database
+     * and intellij / the program.
+     * @return an arraylist of the City class
+     */
+    public ArrayList getLargestPopulatedCitiesFromWorld(Connection con)
+    {
+        try
+        {
 
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT city.Name, country.Name, city.District, city.Population "
+                            + " FROM city JOIN country ON (city.CountryCode = country.Code) "
+                            + " ORDER BY Population DESC"
+                            + "LIMIT 10 ";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return countries
+            ArrayList cities = new ArrayList<City>();
+            while (rset.next())
+            {
+                City city = new City();
+                city.name = rset.getString("city.Name");
+                city.district = rset.getString("District");
+                city.population = rset.getInt("city.Population");
+                city.country = rset.getString("country.Name");
+                cities.add(city);
+            }
+            return cities;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get City details");
+            return null;
+        }
+    }
 
 
     public void displayCities(ArrayList<City> cities, String query)
