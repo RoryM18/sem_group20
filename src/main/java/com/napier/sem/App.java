@@ -142,6 +142,14 @@ public class App
         // Invoke a function to display the results of the query to the user
         a.displayCities(cities, "Query 9: return an arraylist of the selected number of cities within world of a selected Country");
 
+        /**Name: getLargestPopulatedCitiesFromADistrict / Query 10
+         *description: To return an arraylist of the selected number of cities within world of a selected District
+         * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
+         * @return an arraylist of the city class      */
+        cities = a.getLargestPopulatedCitiesFromADistrict(con);
+        // Invoke a function to display the results of the query to the user
+        a.displayCities(cities, "Query 9: return an arraylist of the selected number of cities within world of a selected District");
+
 
 
         // invoke a function to close the connection between the database and this program
@@ -528,6 +536,50 @@ public class App
                     "SELECT city.Name, country.Name, city.District, city.Population "
                             + " FROM city JOIN country ON (city.CountryCode = country.Code) "
                             + " WHERE country.Name = 'United Kingdom' "
+                            + " ORDER BY Population DESC "
+                            + " LIMIT 10 ";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return countries
+            ArrayList cities = new ArrayList<City>();
+            while (rset.next())
+            {
+                City city = new City();
+                city.name = rset.getString("city.Name");
+                city.district = rset.getString("District");
+                city.population = rset.getInt("city.Population");
+                city.country = rset.getString("country.Name");
+                cities.add(city);
+            }
+            return cities;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get City details");
+            return null;
+        }
+    }
+
+    /**
+     * Name: getLargestPopulatedCitiesFromADistrict
+     * description: To return an arraylist of the cities within the world database from a specific District
+     * @param con - A variable of type 'Connection' called con which uses the connection between the database
+     * and intellij / the program.
+     * @return an arraylist of the City class
+     */
+    public ArrayList getLargestPopulatedCitiesFromADistrict(Connection con)
+    {
+        try
+        {
+
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT city.Name, country.Name, city.District, city.Population "
+                            + " FROM city JOIN country ON (city.CountryCode = country.Code) "
+                            + " WHERE District = 'Scotland' "
                             + " ORDER BY Population DESC "
                             + " LIMIT 10 ";
             // Execute SQL statement
