@@ -26,19 +26,31 @@ public class AppTest
     @Disabled
     void displayCitiesEmpty()
     {
+        ArrayList<City> cities = new ArrayList<City>();
+        app.displayCities(cities, "checking if display show a empty list");
     }
 
     @Test
     @Disabled
     void displayCitiesNull()
     {
+        ArrayList<City> cities = new ArrayList<City>();
+        app.displayCities(cities, "checking if display show a null list");
     }
 
     @Test
     @Disabled
     void displayCities()
     {
+        ArrayList<City> cities = new ArrayList<City>();
+        City city = new City();
+        city.name = "Edinburgh";
+        city.district = "Scotland";
+        city.population = 450180;
+        city.country = "United Kingdom";
+        cities.add(city);
 
+        app.displayCities(cities, "checking if display show a list");
     }
 
 }

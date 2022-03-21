@@ -24,7 +24,7 @@ public class AppIntegrationTest
     void getCities()
     {
         ArrayList<City> cities = app.getCities();
-        cities = app.getCitiesByAContinent();
+        cities = app.getCities();
 
         int i = 0;
         // checking the tenth line in the list of is correct (for the world)
@@ -34,8 +34,8 @@ public class AppIntegrationTest
 
             if (i == 10)
             {
-                assertEquals(city.name, "Tokyo");
-                assertEquals(city.population, "7980230");
+                assertEquals(city.name, "New York");
+                assertEquals(city.population, "8008278");
                 break;
             }
         }
@@ -49,7 +49,7 @@ public class AppIntegrationTest
         cities = app.getCitiesByAContinent();
 
         int i = 0;
-        // checking the seventh line in the list of is correct (for Oceania)
+        // checking the tenth line in the list of is correct (for Oceania)
         for (City city: cities) {
 
             i++;
@@ -126,5 +126,112 @@ public class AppIntegrationTest
         }
     }
 
+    @Test
+    void getLargestPopulatedCitiesFromWorld()
+    {
+        ArrayList<City> cities = app.getCities();
+        cities = app.getLargestPopulatedCitiesFromWorld();
+
+        int i = 0;
+        // checking the third line in the list of is correct (for the world)
+        for (City city: cities) {
+
+            i++;
+
+            if (i == 3)
+            {
+                assertEquals(city.name,"New York");
+                assertEquals(city.population,"8008278");
+                break;
+            }
+        }
+    }
+
+
+
+    @Test
+    void getLargestPopulatedCitiesFromAContinent()
+    {
+        ArrayList<City> cities = app.getCities();
+        cities = app.getLargestPopulatedCitiesFromAContinent();
+
+        int i = 0;
+        // checking the third line in the list of is correct (for Oceania)
+        for (City city: cities) {
+
+            i++;
+
+            if (i == 3)
+            {
+                assertEquals(city.name,"Manukau");
+                assertEquals(city.population,"281800");
+                break;
+            }
+        }
+    }
+
+    @Test
+    void getLargestPopulatedCitiesFromARegion()
+    {
+        ArrayList<City> cities = app.getCities();
+        cities = app.getLargestPopulatedCitiesFromARegion();
+
+        int i = 0;
+        // checking the third line in the list of is correct (for British islands)
+        for (City city: cities) {
+
+            i++;
+
+            if (i == 3)
+            {
+                assertEquals(city.name,"Bristol");
+                assertEquals(city.population,"402000");
+                break;
+            }
+        }
+    }
+
+    @Test
+    void getLargestPopulatedCitiesFromACountry()
+    {
+        ArrayList<City> cities = app.getCities();
+        cities = app.getLargestPopulatedCitiesFromACountry();
+
+        int i = 0;
+        // checking the third line in the list of is correct (for United Kingdom)
+        for (City city: cities) {
+
+            i++;
+
+            if (i == 3)
+            {
+                assertEquals(city.name,"Cardiff");
+                assertEquals(city.population,"321000");
+                break;
+            }
+        }
+    }
+
+    @Test
+    void getLargestPopulatedCitiesFromADistrict()
+    {
+        ArrayList<City> cities = app.getCities();
+        cities = app.getLargestPopulatedCitiesFromADistrict();
+
+        int i = 0;
+        // checking the third line in the list of is correct (for Scotland)
+        for (City city: cities) {
+
+            i++;
+
+            if (i == 3)
+            {
+                assertEquals(city.name,"Dundee");
+                assertEquals(city.population,"146690");
+                break;
+            }
+        }
+    }
 
 }
+
