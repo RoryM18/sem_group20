@@ -17,48 +17,18 @@ public class App
      * Purpose: To connect to the world database setup on my local mysql server, invoke functions display results and close the connection
      * @param args are the input argurments
      */
+
+    private Connection con = null;
+
     public static void main(String[] args)
     {
+        // Create new Application and connect to database
         App a = new App();
 
-        try
-        {
-            // Load Database driver
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        }
-        catch (ClassNotFoundException e)
-        {
-            System.out.println("Could not load SQL driver");
-            System.exit(-1);
-        }
-
-        // Connection to the database
-        Connection con = null;
-        int retries = 100;
-        for (int i = 0; i < retries; ++i)
-        {
-            System.out.println("Connecting to database...");
-            try
-            {
-                // Wait a bit for db to start
-                Thread.sleep(30000);
-                // Connect to database
-                con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
-                System.out.println("Successfully connected");
-                // Wait a bit
-                Thread.sleep(10000);
-                // Exit for loop
-                break;
-            }
-            catch (SQLException sqle)
-            {
-                System.out.println("Failed to connect to database attempt " + Integer.toString(i));
-                System.out.println(sqle.getMessage());
-            }
-            catch (InterruptedException ie)
-            {
-                System.out.println("Thread interrupted? Should not happen.");
-            }
+        if(args.length < 1){
+            a.connect("localhost:33060", 30000);
+        }else{
+            a.connect(args[0], Integer.parseInt(args[1]));
         }
 
 
@@ -70,7 +40,7 @@ public class App
          *description: To return an arraylist of the cities within the world database
          *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return an arraylist of the City class      */
-        ArrayList<City> cities = a.getCities(con);
+        ArrayList<City> cities = a.getCities();
         a.displayCities(cities, "Query 1: return an arraylist of the cities within the world");
 
 
@@ -79,7 +49,7 @@ public class App
          *description: To return an arraylist of the cities within a Continent
          * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return an arraylist of the city class      */
-        cities = a.getCitiesByAContinent(con);
+        cities = a.getCitiesByAContinent();
         // Invoke a function to display the results of the query to the user
         a.displayCities(cities, "Query 2: return an arraylist of the cities within a continent");
 
@@ -88,7 +58,7 @@ public class App
          *description: To return an arraylist of the cities within a region
          * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return an arraylist of the city class      */
-        cities = a.getCitiesByRegion(con);
+        cities = a.getCitiesByRegion();
         // Invoke a function to display the results of the query to the user
         a.displayCities(cities, "Query 3: return an arraylist of the cities within a region");
 
@@ -97,7 +67,7 @@ public class App
          *description: To return an arraylist of the cities within a Country
          * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return an arraylist of the city class      */
-        cities = a.getCitiesByACountry(con);
+        cities = a.getCitiesByACountry();
         // Invoke a function to display the results of the query to the user
         a.displayCities(cities, "Query 4: return an arraylist of the cities within a Country");
 
@@ -106,7 +76,7 @@ public class App
          *description: To return an arraylist of the cities within a distric
          * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return an arraylist of the city class      */
-        cities = a.getCitiesByADistrict(con);
+        cities = a.getCitiesByADistrict();
         // Invoke a function to display the results of the query to the user
         a.displayCities(cities, "Query 5: return an arraylist of the cities within a District");
 
@@ -114,7 +84,7 @@ public class App
          *description: To return an arraylist of the selected number of cities within world
          * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return an arraylist of the city class      */
-        cities = a.getLargestPopulatedCitiesFromWorld(con);
+        cities = a.getLargestPopulatedCitiesFromWorld();
         // Invoke a function to display the results of the query to the user
         a.displayCities(cities, "Query 6: return an arraylist of the selected number of cities within world");
 
@@ -122,7 +92,7 @@ public class App
          *description: To return an arraylist of the selected number of cities within world of a selected continent
          * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return an arraylist of the city class      */
-        cities = a.getLargestPopulatedCitiesFromAContinent(con);
+        cities = a.getLargestPopulatedCitiesFromAContinent();
         // Invoke a function to display the results of the query to the user
         a.displayCities(cities, "Query 7: return an arraylist of the selected number of cities within world of a selected continent");
 
@@ -130,7 +100,7 @@ public class App
          *description: To return an arraylist of the selected number of cities within world of a selected Region
          * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return an arraylist of the city class      */
-        cities = a.getLargestPopulatedCitiesFromARegion(con);
+        cities = a.getLargestPopulatedCitiesFromARegion();
         // Invoke a function to display the results of the query to the user
         a.displayCities(cities, "Query 8: return an arraylist of the selected number of cities within world of a selected Region");
 
@@ -138,7 +108,7 @@ public class App
          *description: To return an arraylist of the selected number of cities within world of a selected Country
          * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return an arraylist of the city class      */
-        cities = a.getLargestPopulatedCitiesFromACountry(con);
+        cities = a.getLargestPopulatedCitiesFromACountry();
         // Invoke a function to display the results of the query to the user
         a.displayCities(cities, "Query 9: return an arraylist of the selected number of cities within world of a selected Country");
 
@@ -146,12 +116,44 @@ public class App
          *description: To return an arraylist of the selected number of cities within world of a selected District
          * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return an arraylist of the city class      */
-        cities = a.getLargestPopulatedCitiesFromADistrict(con);
+        cities = a.getLargestPopulatedCitiesFromADistrict();
         // Invoke a function to display the results of the query to the user
         a.displayCities(cities, "Query 10: return an arraylist of the selected number of cities within world of a selected District");
 
 
+        a.disconnect();
 
+    }
+
+    public void connect(String location, int delay) {
+        try {
+            // Load Database driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Could not load SQL driver");
+            System.exit(-1);
+        }
+
+        int retries = 10;
+        for (int i = 0; i < retries; ++i) {
+            System.out.println("Connecting to database...");
+            try {
+                // Wait a bit for db to start
+                Thread.sleep(delay);
+                // Connect to database
+                con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
+                System.out.println("Successfully connected");
+                break;
+            } catch (SQLException sqle) {
+                System.out.println("Failed to connect to database attempt " +                                  Integer.toString(i));
+                System.out.println(sqle.getMessage());
+            } catch (InterruptedException ie) {
+                System.out.println("Thread interrupted? Should not happen.");
+            }
+        }
+    }
+
+    public void disconnect() {
         // invoke a function to close the connection between the database and this program
         if (con != null)
         {
@@ -169,16 +171,13 @@ public class App
 
 
 
-
-
     /**
      * Name: getCities
      * description: To return an arraylist of the cities within the world database
-     * @param con - A variable of type 'Connection' called con which uses the connection between the database
      * and intellij / the program.
      * @return an arraylist of the City class
      */
-    public ArrayList getCities(Connection con)
+    public ArrayList getCities()
     {
         try
         {
@@ -217,11 +216,10 @@ public class App
     /**
      * Name: getCitiesInAContinent
      * description: To return an arraylist of the cities within the world database
-     * @param con - A variable of type 'Connection' called con which uses the connection between the database
      * and intellij / the program.
      * @return an arraylist of the City class
      */
-    public ArrayList getCitiesByAContinent(Connection con)
+    public ArrayList getCitiesByAContinent()
     {
         try
         {
@@ -263,9 +261,8 @@ public class App
 
     /**Name: getCitiesByRegion / Query 3
      *description: To return an arraylist of the cities within a region
-     * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
      * @return an arraylist of the city class      */
-    public ArrayList getCitiesByRegion(Connection con)
+    public ArrayList getCitiesByRegion()
     {
         try
         {
@@ -304,9 +301,8 @@ public class App
 
     /**Name: getCitiesByCountry / Query 4
      *description: To return an arraylist of the cities within a City
-     * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
      * @return an arraylist of the city class      */
-    public ArrayList getCitiesByACountry(Connection con)
+    public ArrayList getCitiesByACountry()
     {
         try
         {
@@ -348,9 +344,8 @@ public class App
 
     /**Name: getCitiesByDistrict / Query 5
      *description: To return an arraylist of the cities within a district
-     * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
      * @return an arraylist of the city class      */
-    public ArrayList getCitiesByADistrict(Connection con)
+    public ArrayList getCitiesByADistrict()
     {
         try
         {
@@ -389,11 +384,10 @@ public class App
     /**
      * Name: getCities
      * description: To return an arraylist of the cities within the world database
-     * @param con - A variable of type 'Connection' called con which uses the connection between the database
      * and intellij / the program.
      * @return an arraylist of the City class
      */
-    public ArrayList getLargestPopulatedCitiesFromWorld(Connection con)
+    public ArrayList getLargestPopulatedCitiesFromWorld()
     {
         try
         {
@@ -432,11 +426,10 @@ public class App
     /**
      * Name: getLargestPopulatedCitiesFromAContinent
      * description: To return an arraylist of the cities within the world database from a specific continent
-     * @param con - A variable of type 'Connection' called con which uses the connection between the database
      * and intellij / the program.
      * @return an arraylist of the City class
      */
-    public ArrayList getLargestPopulatedCitiesFromAContinent(Connection con)
+    public ArrayList getLargestPopulatedCitiesFromAContinent()
     {
         try
         {
@@ -476,11 +469,10 @@ public class App
     /**
      * Name: getLargestPopulatedCitiesFromARegion
      * description: To return an arraylist of the cities within the world database from a specific Region
-     * @param con - A variable of type 'Connection' called con which uses the connection between the database
      * and intellij / the program.
      * @return an arraylist of the City class
      */
-    public ArrayList getLargestPopulatedCitiesFromARegion(Connection con)
+    public ArrayList getLargestPopulatedCitiesFromARegion()
     {
         try
         {
@@ -520,11 +512,10 @@ public class App
     /**
      * Name: getLargestPopulatedCitiesFromACountry
      * description: To return an arraylist of the cities within the world database from a specific country
-     * @param con - A variable of type 'Connection' called con which uses the connection between the database
      * and intellij / the program.
      * @return an arraylist of the City class
      */
-    public ArrayList getLargestPopulatedCitiesFromACountry(Connection con)
+    public ArrayList getLargestPopulatedCitiesFromACountry()
     {
         try
         {
@@ -564,11 +555,10 @@ public class App
     /**
      * Name: getLargestPopulatedCitiesFromADistrict
      * description: To return an arraylist of the cities within the world database from a specific District
-     * @param con - A variable of type 'Connection' called con which uses the connection between the database
      * and intellij / the program.
      * @return an arraylist of the City class
      */
-    public ArrayList getLargestPopulatedCitiesFromADistrict(Connection con)
+    public ArrayList getLargestPopulatedCitiesFromADistrict()
     {
         try
         {
