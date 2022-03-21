@@ -1,6 +1,7 @@
 package com.napier.sem;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
@@ -21,6 +22,7 @@ public class AppIntegrationTest
     }
 
     @Test
+    @Disabled
     void getCountries()
     {
         ArrayList<Country> countries = app.getCountries();
@@ -45,6 +47,7 @@ public class AppIntegrationTest
     }
 
     @Test
+    @Disabled
     void getCountriesFromContinent()
     {
         ArrayList<Country> countries = app.getCountries();
@@ -66,6 +69,7 @@ public class AppIntegrationTest
     }
 
     @Test
+    @Disabled
     void getCountriesFromRegion()
     {
         ArrayList<Country> countries = app.getCountries();
@@ -87,6 +91,7 @@ public class AppIntegrationTest
     }
 
     @Test
+    @Disabled
     void getLargestPopulatedCountriesFromWorld()
     {
         ArrayList<Country> countries = app.getCountries();
@@ -109,6 +114,7 @@ public class AppIntegrationTest
     }
 
     @Test
+    @Disabled
     void getLargestPopulatedCountriesFromContinent()
     {
         ArrayList<Country> countries = app.getCountries();
@@ -131,6 +137,7 @@ public class AppIntegrationTest
     }
 
     @Test
+    @Disabled
     void getLargestPopulatedCountriesFromRegion()
     {
         ArrayList<Country> countries = app.getCountries();

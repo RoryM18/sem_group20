@@ -27,7 +27,7 @@ public class AppTest
     void displayCountriesEmpty()
     {
         ArrayList<Country> countries = new ArrayList<Country>();
-        app.displayCountries(countries, "Query 1: All the countries in the world organised by largest population to smallest. ");
+        app.displayCountries(countries, "tests displaying empty");
     }
 
     @Test
@@ -36,7 +36,7 @@ public class AppTest
     {
         ArrayList<Country> countries = new ArrayList<Country>();
         countries.add(null);
-        app.displayCountries(countries, "Query 1: All the countries in the world organised by largest population to smallest. ");
+        app.displayCountries(countries, "tests displaying null");
     }
 
     @Test
@@ -53,7 +53,7 @@ public class AppTest
         country.capital = 129;
 
         countries.add(country);
-        app.displayCountries(countries, "Query 1: All the countries in the world organised by largest population to smallest. ");
+        app.displayCountries(countries, "tests displaying  countrie");
     }
 
 
