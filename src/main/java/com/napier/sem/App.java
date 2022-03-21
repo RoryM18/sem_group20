@@ -165,6 +165,7 @@ public class App
                 country.population = rs.getInt("Population");
                 country.capital = rs.getInt("Capital");;
 
+                countries.add(country);
                 return countries;
             }
             else return null;
