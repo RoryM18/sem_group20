@@ -18,55 +18,28 @@ public class App
      * Purpose: To connect to the world database setup on my local mysql server, invoke functions display results and close the connection
      * @param args are the input argurments
      */
+
+
+
+    private Connection con = null;
+
     public static void main(String[] args)
     {
 
+
+        // Create new Application and connect to database
         App a = new App();
 
-        try
-        {
-            // Load Database driver
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        }
-        catch (ClassNotFoundException e)
-        {
-            System.out.println("Could not load SQL driver");
-            System.exit(-1);
-        }
-
-        // Connection to the database
-        Connection con = null;
-        int retries = 100;
-        for (int i = 0; i < retries; ++i)
-        {
-            System.out.println("Connecting to database...");
-            try
-            {
-                // Wait a bit for db to start
-                Thread.sleep(30000);
-                // Connect to database
-                con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
-                System.out.println("Successfully connected");
-                // Wait a bit
-                Thread.sleep(10000);
-                // Exit for loop
-                break;
-            }
-            catch (SQLException sqle)
-            {
-                System.out.println("Failed to connect to database attempt " + Integer.toString(i));
-                System.out.println(sqle.getMessage());
-            }
-            catch (InterruptedException ie)
-            {
-                System.out.println("Thread interrupted? Should not happen.");
-            }
+        if(args.length < 1){
+            a.connect("localhost:33060", 30000);
+        }else{
+            a.connect(args[0], Integer.parseInt(args[1]));
         }
 
 
         //Query 1: All the countries in the world organised by largest population to smallest.
         // invoke a functinon to get the countris as an arraylist
-        ArrayList<Country> countries = a.getCountries(con);
+        ArrayList<Country> countries = a.getCountries();
         // invoke a function to display the results of the query to the user
         a.displayCountries(countries, "Query 1: All the countries in the world organised by largest population to smallest. ");
         countries.clear();
@@ -74,34 +47,75 @@ public class App
 
         //Query 2: All the countries in a continent organised by largest population to smallest.
         // invoke a function to get the countries as an arraylist
-        countries = a.getCountriesFromContinent(con);
+        countries = a.getCountriesFromContinent();
         a.displayCountries(countries, "Query 2: All the countries in a continent organised by largest population to smallest.");
 
 
         //Query 3: All the countries in a region organised by largest population to smallest.
         // invoke a function to get the countries as an arraylist
-        countries = a.getCountriesFromRegion(con);
+        countries = a.getCountriesFromRegion();
         a.displayCountries(countries, "Query 3: All countries in a region by largest population to smallest.");
 
 
         //Query 4: Show X number of countries in the world with the largest population
         // invoke a function to get the countries as an arraylist
-        countries = a.getLargestPopulatedCountriesFromWorld(con);
+        countries = a.getLargestPopulatedCountriesFromWorld();
         a.displayCountries(countries, "Query 4: Show X number of countries in the world with the largest population");
 
         //Query 5: Show X number of countries in the Continent with the largest population
         // invoke a function to get the countries as an arraylist
-        countries = a.getLargestPopulatedCountriesFromContinent(con);
+        countries = a.getLargestPopulatedCountriesFromContinent();
         a.displayCountries(countries, "Query 5: Show X number of countries in the Continent with the largest population");
 
         //Query 6: Show X number of countries in the Region with the largest population
         // invoke a function to get the countries as an arraylist
-        countries = a.getLargestPopulatedCountriesFromRegion(con);
+        countries = a.getLargestPopulatedCountriesFromRegion();
         a.displayCountries(countries, "Query 6: Show X number of countries in the Region with the largest population");
 
 
+        //disconnect to database
+        a.disconnect();
 
 
+    }
+
+    /**
+     * Connection to MySQL database.
+     */
+
+    public void connect(String location, int delay) {
+        try {
+            // Load Database driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Could not load SQL driver");
+            System.exit(-1);
+        }
+
+        int retries = 10;
+
+        for (int i = 0; i < retries; ++i) {
+            System.out.println("Connecting to database...");
+            try {
+                // Wait a bit for db to start
+                Thread.sleep(delay);
+                // Connect to database
+                con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
+                System.out.println("Successfully connected");
+                break;
+            } catch (SQLException sqle) {
+                System.out.println("Failed to connect to database attempt " +                                  Integer.toString(i));
+                System.out.println(sqle.getMessage());
+            } catch (InterruptedException ie) {
+                System.out.println("Thread interrupted? Should not happen.");
+            }
+        }
+    }
+
+    /**
+     * Disconnection to MySQL database.
+     */
+    public void disconnect() {
         // invoke a function to close the connection between the database and this program
         if (con != null)
         {
@@ -116,19 +130,13 @@ public class App
             }
         }
     }
-
-
-
-
-
     /**
      * Name: getCountries / Query 1
      * description: To return an arraylist of the countries within the world database
-     * @param con - A variable of type 'Connection' called con which uses the connection between the database
      * and intellij / the program.
      * @return an arraylist of the Country class
      */
-    public ArrayList getCountries(Connection con)
+    public ArrayList getCountries()
     {
 
         try
@@ -172,15 +180,13 @@ public class App
 
 
 
-
     /**
      * Name: getCountriesFromContinent / Query 2
      * description: To return an arraylist of the countries within a continent
-     * @param con - A variable of type 'Connection' called con which uses the connection between the database
      * and intellij / the program.
      * @return an arraylist of the Country class
      */
-    public ArrayList getCountriesFromContinent(Connection con)
+    public ArrayList getCountriesFromContinent()
     {
        // Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         //System.out.println("Enter Continent For Query: ");
@@ -237,11 +243,10 @@ public class App
     /**
      * Name: getCountriesFromRegion / Query 3
      * description: To return an arraylist of the countries within a Region
-     * @param con - A variable of type 'Connection' called con which uses the connection between the database
      * and intellij / the program.
      * @return an arraylist of the Country class
      */
-    public ArrayList getCountriesFromRegion(Connection con)
+    public ArrayList getCountriesFromRegion()
     {
         try
         {
@@ -287,11 +292,10 @@ public class App
     /**
      * Name: getLargestPopulatedCountriesdFromWolrd / Query 4
      * description: To return an arraylist of the countries within the world
-     * @param con - A variable of type 'Connection' called con which uses the connection between the database
      * and intellij / the program.
      * @return an arraylist of the Country class
      */
-    public ArrayList getLargestPopulatedCountriesFromWorld(Connection con)
+    public ArrayList getLargestPopulatedCountriesFromWorld()
     {
         try
         {
@@ -337,11 +341,10 @@ public class App
     /**
      * Name: getLargestPopulatedCountriesFromContinent / Query 5
      * description: To return an arraylist of the countries within a continent
-     * @param con - A variable of type 'Connection' called con which uses the connection between the database
      * and intellij / the program.
      * @return an arraylist of the Country class
      */
-    public ArrayList getLargestPopulatedCountriesFromContinent(Connection con)
+    public ArrayList getLargestPopulatedCountriesFromContinent()
     {
         try
         {
@@ -387,11 +390,10 @@ public class App
     /**
      * Name: getLargestPopulatedCountriesFromRegion / Query 6
      * description: To return an arraylist of the countries within Region
-     * @param con - A variable of type 'Connection' called con which uses the connection between the database
      * and intellij / the program.
      * @return an arraylist of the Country class
      */
-    public ArrayList getLargestPopulatedCountriesFromRegion(Connection con)
+    public ArrayList getLargestPopulatedCountriesFromRegion()
     {
         try
         {
