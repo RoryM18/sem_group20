@@ -155,7 +155,7 @@ public class App
             ResultSet rs = stmt1.executeQuery();
 
             ArrayList countries = new ArrayList<Country>();
-            if (rs.next())
+            while (rs.next())
             {
                 Country country = new Country();
                 country.code = rs.getString("Code");
@@ -163,12 +163,11 @@ public class App
                 country.continent = rs.getString("Continent");
                 country.region = rs.getString("Region");
                 country.population = rs.getInt("Population");
-                country.capital = rs.getInt("Capital");;
-
+                country.capital = rs.getInt("Capital");
                 countries.add(country);
-                return countries;
             }
-            else return null;
+            return countries;
+
         }
         catch (Exception e)
         {
@@ -444,6 +443,11 @@ public class App
      */
     public void displayCountries(ArrayList<Country> countries, String queryName)
     {
+        if (countries == null)
+        {
+            System.out.println("No Countries could be found");
+            return;
+        }
         // Print out query name
         System.out.println(queryName);
 
