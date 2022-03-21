@@ -72,6 +72,8 @@ public class App
         countries = a.getLargestPopulatedCountriesFromRegion();
         a.displayCountries(countries, "Query 6: Show X number of countries in the Region with the largest population");
 
+
+        //disconnect to database
         a.disconnect();
 
 
