@@ -147,7 +147,7 @@ public class App
             ResultSet rs = stmt1.executeQuery();
 
             ArrayList countries = new ArrayList<Country>();
-            while (rs.next())
+            if (rs.next())
             {
                 Country country = new Country();
                 country.code = rs.getString("Code");
@@ -157,9 +157,9 @@ public class App
                 country.population = rs.getInt("Population");
                 country.capital = rs.getInt("Capital");;
 
-                countries.add(country);
+                return countries;
             }
-            return countries;
+            else return null;
         }
         catch (Exception e)
         {
