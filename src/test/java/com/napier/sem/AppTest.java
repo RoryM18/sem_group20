@@ -40,7 +40,7 @@ public class AppTest
     }
 
     @Test
-
+    @Disabled
     void displayCountries()
     {
         ArrayList<Country> countries = new ArrayList<Country>();
