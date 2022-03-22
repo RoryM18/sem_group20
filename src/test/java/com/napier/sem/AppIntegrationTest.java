@@ -22,7 +22,6 @@ public class AppIntegrationTest
     }
 
     @Test
-    @Disabled
     void getCountries()
     {
         ArrayList<Country> countries = app.getCountries();
@@ -47,7 +46,6 @@ public class AppIntegrationTest
     }
 
     @Test
-    @Disabled
     void getCountriesFromContinent()
     {
         ArrayList<Country> countries = app.getCountries();
@@ -62,14 +60,13 @@ public class AppIntegrationTest
             if (i == 7)
             {
                 assertEquals(country.name, "Algeria");
-                assertEquals(country.population, "31471000");
+                assertEquals(country.population, 31471000);
                 break;
             }
         }
     }
 
     @Test
-    @Disabled
     void getCountriesFromRegion()
     {
         ArrayList<Country> countries = app.getCountries();
@@ -84,14 +81,13 @@ public class AppIntegrationTest
             if (i == 7)
             {
                 assertEquals(country.name, "Ecuador");
-                assertEquals(country.population, "12646000");
+                assertEquals(country.population, 12646000);
                 break;
             }
         }
     }
 
     @Test
-    @Disabled
     void getLargestPopulatedCountriesFromWorld()
     {
         ArrayList<Country> countries = app.getCountries();
@@ -106,7 +102,7 @@ public class AppIntegrationTest
             if (i == 10)
             {
                 assertEquals(country.name, "Nigeria");
-                assertEquals(country.population, "111506000");
+                assertEquals(country.population, 111506000);
                 break;
 
             }
@@ -114,7 +110,6 @@ public class AppIntegrationTest
     }
 
     @Test
-    @Disabled
     void getLargestPopulatedCountriesFromContinent()
     {
         ArrayList<Country> countries = app.getCountries();
@@ -129,7 +124,7 @@ public class AppIntegrationTest
             if (i == 10)
             {
                 assertEquals(country.name, "Turkey");
-                assertEquals(country.population, "66591000");
+                assertEquals(country.population, 66591000);
                 break;
 
             }
@@ -137,7 +132,6 @@ public class AppIntegrationTest
     }
 
     @Test
-    @Disabled
     void getLargestPopulatedCountriesFromRegion()
     {
         ArrayList<Country> countries = app.getCountries();
@@ -152,7 +146,7 @@ public class AppIntegrationTest
             if (i == 10)
             {
                 assertEquals(country.name, "Jamaica");
-                assertEquals(country.population, "2583000");
+                assertEquals(country.population, 2583000);
                 break;
 
             }
