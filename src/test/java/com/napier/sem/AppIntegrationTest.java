@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class AppIntegrationTest
 {
+    // Set up App
     static App app;
 
     @BeforeAll
@@ -20,6 +21,7 @@ public class AppIntegrationTest
         app.connect("localhost:33060", 30000);
 
     }
+
 
     @Test
     void getCities()
