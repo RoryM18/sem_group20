@@ -141,11 +141,11 @@ public class App
                 // Wait a bit for db to start
                 Thread.sleep(delay);
                 // Connect to database
-                con = DriverManager.getConnection("jdbc:mysql://" + location + "/world?useSSL=false", "root", "example");
+                con = DriverManager.getConnection("jdbc:mysql:// " + location + "/world?useSSL=false", "root", "example");
                 System.out.println("Successfully connected");
                 break;
             } catch (SQLException sqle) {
-                System.out.println("Failed to connect to database attempt " +                                  Integer.toString(i));
+                System.out.println("Failed to connect to database attempt " + Integer.toString(i));
                 System.out.println(sqle.getMessage());
             } catch (InterruptedException ie) {
                 System.out.println("Thread interrupted? Should not happen.");
@@ -527,7 +527,7 @@ public class App
                     "SELECT city.Name, country.Name, city.District, city.Population "
                             + " FROM city JOIN country ON (city.CountryCode = country.Code) "
                             + " WHERE country.Name = 'United Kingdom' "
-                            + " ORDER BY Population DESC "
+                            + " ORDER BY city.Population DESC "
                             + " LIMIT 10 ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -597,11 +597,18 @@ public class App
 
     public void displayCities(ArrayList<City> cities, String query)
     {
-
+        // Check cities is not null
+        if (cities == null)
+        {
+            System.out.println("No cities is arrayList");
+            return;
+        }
         System.out.println("\n\n\n" + query);
 
         for (City city: cities) {
 
+            if (city == null)
+                continue;
             String details = (
                     city.name + ", " +
                     city.country + ", "

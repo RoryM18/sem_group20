@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
+
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -35,7 +36,7 @@ public class AppIntegrationTest
             if (i == 10)
             {
                 assertEquals(city.name, "New York");
-                assertEquals(city.population, "8008278");
+                assertEquals(city.population, 8008278);
                 break;
             }
         }
@@ -54,10 +55,10 @@ public class AppIntegrationTest
 
             i++;
 
-            if (i == 7)
+            if (i == 10)
             {
                 assertEquals(city.name, "Manukau");
-                assertEquals(city.population, "281800");
+                assertEquals(city.population, 281800);
                 break;
             }
         }
@@ -78,7 +79,7 @@ public class AppIntegrationTest
             if (i == 5)
             {
                 assertEquals(city.name, "Liverpool");
-                assertEquals(city.population, "461000");
+                assertEquals(city.population, 461000);
                 break;
             }
         }
@@ -99,7 +100,7 @@ public class AppIntegrationTest
             if (i == 3)
             {
                 assertEquals(city.name, "Glasgow");
-                assertEquals(city.population, "619680");
+                assertEquals(city.population, 619680);
                 break;
             }
         }
@@ -117,10 +118,10 @@ public class AppIntegrationTest
 
             i++;
 
-            if (i == 3)
+            if (i == 10)
             {
                 assertEquals(city.name, "Aberdeen");
-                assertEquals(city.population, "213070");
+                assertEquals(city.population, 213070);
                 break;
             }
         }
@@ -138,10 +139,10 @@ public class AppIntegrationTest
 
             i++;
 
-            if (i == 3)
+            if (i == 10)
             {
                 assertEquals(city.name,"New York");
-                assertEquals(city.population,"8008278");
+                assertEquals(city.population,8008278);
                 break;
             }
         }
@@ -161,10 +162,10 @@ public class AppIntegrationTest
 
             i++;
 
-            if (i == 3)
+            if (i == 10)
             {
                 assertEquals(city.name,"Manukau");
-                assertEquals(city.population,"281800");
+                assertEquals(city.population,281800);
                 break;
             }
         }
@@ -182,10 +183,10 @@ public class AppIntegrationTest
 
             i++;
 
-            if (i == 3)
+            if (i == 10)
             {
                 assertEquals(city.name,"Bristol");
-                assertEquals(city.population,"402000");
+                assertEquals(city.population,402000);
                 break;
             }
         }
@@ -203,10 +204,12 @@ public class AppIntegrationTest
 
             i++;
 
-            if (i == 3)
+
+
+            if (i == 10)
             {
                 assertEquals(city.name,"Cardiff");
-                assertEquals(city.population,"321000");
+                assertEquals(city.population,321000);
                 break;
             }
         }
@@ -224,10 +227,10 @@ public class AppIntegrationTest
 
             i++;
 
-            if (i == 3)
+            if (i == 10)
             {
                 assertEquals(city.name,"Dundee");
-                assertEquals(city.population,"146690");
+                assertEquals(city.population,146690);
                 break;
             }
         }

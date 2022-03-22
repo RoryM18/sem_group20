@@ -17,13 +17,13 @@ public class AppTest
     @BeforeAll
     static void init()
     {
-        App a = new App();
+         app = new App();
 
     }
 
 
     @Test
-    @Disabled
+    //@Disabled
     void displayCitiesEmpty()
     {
         ArrayList<City> cities = new ArrayList<City>();
@@ -31,7 +31,7 @@ public class AppTest
     }
 
     @Test
-    @Disabled
+    //@Disabled
     void displayCitiesNull()
     {
         ArrayList<City> cities = new ArrayList<City>();
@@ -39,7 +39,7 @@ public class AppTest
     }
 
     @Test
-    @Disabled
+    //@Disabled
     void displayCities()
     {
         ArrayList<City> cities = new ArrayList<City>();
