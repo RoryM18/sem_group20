@@ -36,7 +36,7 @@ public class AppIntegrationTest
             if (i == 7)
             {
                 assertEquals(country.name, "Russian Federation");
-                assertEquals(country.population, "146934000");
+                assertEquals(country.population, 146934000);
                 break;
             }
         }
