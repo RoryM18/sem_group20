@@ -186,8 +186,8 @@ public class App
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT Capital, name, Population "
-                            + " FROM country "
+                    "SELECT city.Name, country.Name, city.Population "
+                            + " FROM city JOIN country ON (city.CountryCode = country.Code) "
                             + " ORDER BY Population DESC";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -196,9 +196,9 @@ public class App
             while (rset.next())
             {
                 Capitals capital = new Capitals();
-                capital.name = rset.getString("country.Capital");
+                capital.name = rset.getString("capital.Name");
                 capital.country = rset.getString("country.Name");
-                capital.population = rset.getInt("country.Population");
+                capital.population = rset.getInt("capital.Population");
                 capitals.add(capital);
             }
             return capitals;
