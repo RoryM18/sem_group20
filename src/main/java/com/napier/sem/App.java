@@ -40,7 +40,7 @@ public class App
          *description: To return an arraylist of the cities within the world database
          *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return an arraylist of the City class      */
-        ArrayList<City> cities = a.getCities();
+        ArrayList<City> cities = a.getCapitals();
         a.displayCities(cities, "Query 1: return an arraylist of the cities within the world");
 
 
@@ -177,7 +177,7 @@ public class App
      * and intellij / the program.
      * @return an arraylist of the City class
      */
-    public ArrayList getCities()
+    public ArrayList getCapitals()
     {
         try
         {
@@ -186,23 +186,22 @@ public class App
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.Name, country.Name, city.District, city.Population "
-                            + " FROM city JOIN country ON (city.CountryCode = country.Code) "
+                    "SELECT capital.Name, country.Name, capital.Population "
+                            + " FROM capital JOIN country ON (capital.CountryCode = country.Code) "
                             + " ORDER BY Population DESC";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return countries
-            ArrayList cities = new ArrayList<City>();
+            ArrayList capitals = new ArrayList<Capitals>();
             while (rset.next())
             {
-                City city = new City();
-                city.name = rset.getString("city.Name");
-                city.district = rset.getString("District");
-                city.population = rset.getInt("city.Population");
-                city.country = rset.getString("country.Name");
-                cities.add(city);
+                Capitals capital = new Capitals();
+                capital.name = rset.getString("capital.Name");
+                capital.country = rset.getString("country.Name");
+                capital.population = rset.getInt("capital.Population");
+                capitals.add(capital);
             }
-            return cities;
+            return capitals;
         }
         catch (Exception e)
         {
