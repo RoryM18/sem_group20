@@ -186,8 +186,8 @@ public class App
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT capital.Name, country.Name, capital.Population "
-                            + " FROM capital JOIN country ON (capital.CountryCode = country.Code) "
+                    "SELECT Capital, Name, Population "
+                            + " FROM country "
                             + " ORDER BY Population DESC";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -599,7 +599,7 @@ public class App
         // Check cities is not null
         if (cities == null)
         {
-            System.out.println("No cities is arrayList");
+            System.out.println("No cities in arrayList");
             return;
         }
         System.out.println("\n\n\n" + query);
