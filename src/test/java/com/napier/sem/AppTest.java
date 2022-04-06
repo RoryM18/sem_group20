@@ -23,7 +23,7 @@ public class AppTest
 
 
     @Test
-    @Disabled
+
     void displayCountriesEmpty()
     {
         ArrayList<Country> countries = new ArrayList<Country>();
@@ -31,7 +31,7 @@ public class AppTest
     }
 
     @Test
-    @Disabled
+
     void displayCountriesNull()
     {
         ArrayList<Country> countries = new ArrayList<Country>();
@@ -40,7 +40,7 @@ public class AppTest
     }
 
     @Test
-    @Disabled
+
     void displayCountries()
     {
         ArrayList<Country> countries = new ArrayList<Country>();
