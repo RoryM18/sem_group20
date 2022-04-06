@@ -187,8 +187,8 @@ public class App
             // Create string for SQL statement
             String strSelect =
                     "SELECT city.Name, country.Name, city.Population "
-                            + " FROM city JOIN country ON (city.id = country.capitals) "
-                            + "WHERE country.capital = city.id "
+                            + " FROM city JOIN country ON (city.id = country.capital) "
+                            + "WHERE city.id = country.capital "
                             + " ORDER BY Population DESC";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
