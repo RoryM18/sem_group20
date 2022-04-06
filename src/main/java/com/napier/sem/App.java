@@ -71,6 +71,13 @@ public class App
         capitals = a.getLargestPopulatedCapitalCitiesFromWorldBYContinent();
         a.displayCapitals(capitals, "Query 5: return an arraylist of the capital cities within the world by a continent");
 
+        /**Name: getLargestPopulatedCapitalCitiesFromARegion / Query 6
+         *description: To return an arraylist of the capital cities within the world database by a Region
+         *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
+         * @return an arraylist of the Capital class      */
+        capitals = a.getLargestPopulatedCapitalCitiesFromARegion();
+        a.displayCapitals(capitals, "Query 6: return an arraylist of the capital cities within the world by a region");
+
 
 
         a.disconnect();
@@ -292,7 +299,7 @@ public class App
 
     /**
      * Name: getLargestPopulatedCitiesFromWorldBYContinent
-     * description: To return an arraylist of the capital cities within the world database
+     * description: To return an arraylist of the capital cities within the world database by a continent
      * and intellij / the program.
      * @return an arraylist of the City class
      */
@@ -333,12 +340,12 @@ public class App
     }
 
     /**
-     * Name: getLargestPopulatedCitiesFromAContinent
-     * description: To return an arraylist of the cities within the world database from a specific continent
+     * Name: getLargestPopulatedCitiesFromARegion
+     * description: To return an arraylist of the cities within the world database from a specific Region
      * and intellij / the program.
      * @return an arraylist of the City class
      */
-    public ArrayList getLargestPopulatedCitiesFromAContinent()
+    public ArrayList getLargestPopulatedCapitalCitiesFromARegion()
     {
         try
         {
@@ -347,30 +354,29 @@ public class App
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.Name, country.Name, city.District, city.Population "
-                            + " FROM city JOIN country ON (city.CountryCode = country.Code) "
-                            + " WHERE Continent = 'Oceania' "
+                    "SELECT city.Name, country.Name, city.Population "
+                            + " FROM city JOIN country ON (city.id = country.capital) "
+                            + "WHERE city.id = country.capital AND region = 'British Islands'"
                             + " ORDER BY Population DESC "
-                            + " LIMIT 10 ";
+                            + "LIMIT 10 ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return countries
-            ArrayList cities = new ArrayList<City>();
+            ArrayList capitals = new ArrayList<Capitals>();
             while (rset.next())
             {
-                City city = new City();
-                city.name = rset.getString("city.Name");
-                city.district = rset.getString("District");
-                city.population = rset.getInt("city.Population");
-                city.country = rset.getString("country.Name");
-                cities.add(city);
+                Capitals capital = new Capitals();
+                capital.name = rset.getString("city.Name");
+                capital.country = rset.getString("country.Name");
+                capital.population = rset.getInt("city.Population");
+                capitals.add(capital);
             }
-            return cities;
+            return capitals;
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get City details");
+            System.out.println("Failed to get Capital City details");
             return null;
         }
     }
