@@ -188,6 +188,7 @@ public class App
             String strSelect =
                     "SELECT city.Name, country.Name, city.Population "
                             + " FROM city JOIN country ON (city.CountryCode = country.Code) "
+                            + "WHERE country.capital != NULL "
                             + " ORDER BY Population DESC";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
