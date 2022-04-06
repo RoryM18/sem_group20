@@ -64,6 +64,13 @@ public class App
         capitals = a.getLargestPopulatedCapitalCitiesFromWorld();
         a.displayCapitals(capitals, "Query 4: return an arraylist of the capital cities within the world");
 
+        /**Name: getCapitalsByARegion / Query 5
+         *description: To return an arraylist of the capital cities within the world database
+         *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
+         * @return an arraylist of the Capital class      */
+        capitals = a.getLargestPopulatedCapitalCitiesFromWorldBYContinent();
+        a.displayCapitals(capitals, "Query 5: return an arraylist of the capital cities within the world by a continent");
+
 
 
         a.disconnect();
@@ -284,12 +291,12 @@ public class App
     }
 
     /**
-     * Name: getLargestPopulatedCapitalCitiesFromWorld
+     * Name: getLargestPopulatedCitiesFromWorldBYContinent
      * description: To return an arraylist of the capital cities within the world database
      * and intellij / the program.
      * @return an arraylist of the City class
      */
-    public ArrayList getLargestPopulatedCitiesFromWorld()
+    public ArrayList getLargestPopulatedCapitalCitiesFromWorldBYContinent()
     {
         try
         {
@@ -298,23 +305,24 @@ public class App
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.Name, country.Name, city.District, city.Population "
-                            + " FROM city JOIN country ON (city.CountryCode = country.Code) "
+                    "SELECT city.Name, country.Name, city.Population "
+                            + " FROM city JOIN country ON (city.id = country.capital) "
+                            + "WHERE city.id = country.capital AND continent = 'Oceania'"
                             + " ORDER BY Population DESC "
-                            + " LIMIT 10 ";
+                            + "LIMIT 10 ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return countries
-            ArrayList cities = new ArrayList<City>();
+            ArrayList capitals = new ArrayList<Capitals>();
             while (rset.next())
             {
-                City city = new City();
-                city.name = rset.getString("city.Name");
-                city.population = rset.getInt("city.Population");
-                city.country = rset.getString("country.Name");
-                cities.add(city);
+                Capitals capital = new Capitals();
+                capital.name = rset.getString("city.Name");
+                capital.country = rset.getString("country.Name");
+                capital.population = rset.getInt("city.Population");
+                capitals.add(capital);
             }
-            return cities;
+            return capitals;
         }
         catch (Exception e)
         {
