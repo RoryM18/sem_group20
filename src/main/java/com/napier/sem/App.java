@@ -43,12 +43,12 @@ public class App
         ArrayList<Capitals> capitals = a.getCapitals();
         a.displayCapitals(capitals, "Query 1: return an arraylist of the cities within the world");
 
-        /**Name: getCapitals / Query 2
-         *description: To return an arraylist of the capital cities within the world database
+        /**Name: getCapitalsByContinent / Query 2
+         *description: To return an arraylist of the capital cities within the world database by a continent
          *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return an arraylist of the Capital class      */
         capitals = a.getCapitalsByAContinent();
-        a.displayCapitals(capitals, "Query 1: return an arraylist of the cities within the world");
+        a.displayCapitals(capitals, "Query 2: return an arraylist of the capital cities within the world by a continent");
 
 
 
@@ -120,7 +120,7 @@ public class App
                     "SELECT city.Name, country.Name, city.Population "
                             + " FROM city JOIN country ON (city.id = country.capital) "
                             + "WHERE city.id = country.capital "
-                            + " ORDER BY Population DESC";
+                            + " ORDER BY Population DESC ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return countries
@@ -145,10 +145,10 @@ public class App
 
 
     /**
-     * Name: getCitiesInAContinent
-     * description: To return an arraylist of the cities within the world database
+     * Name: getCapitalsByAContinent
+     * description: To return an arraylist of the capital cities within the world database by a continent
      * and intellij / the program.
-     * @return an arraylist of the City class
+     * @return an arraylist of the Capital class
      */
     public ArrayList getCapitalsByAContinent()
     {
@@ -162,7 +162,7 @@ public class App
                     "SELECT city.Name, country.Name, city.Population "
                             + " FROM city JOIN country ON (city.id = country.capital) "
                             + "WHERE city.id = country.capital AND continent = 'Oceania'"
-                            + " ORDER BY Population DESC";
+                            + " ORDER BY Population DESC ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return countries
