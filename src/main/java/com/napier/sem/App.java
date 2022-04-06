@@ -356,7 +356,7 @@ public class App
             String strSelect =
                     "SELECT city.Name, country.Name, city.Population "
                             + " FROM city JOIN country ON (city.id = country.capital) "
-                            + "WHERE city.id = country.capital AND region = 'Central Asia'"
+                            + "WHERE city.id = country.capital AND region = 'Central Africa'"
                             + " ORDER BY Population DESC "
                             + "LIMIT 10 ";
             // Execute SQL statement
