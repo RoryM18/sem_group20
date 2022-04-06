@@ -62,7 +62,7 @@ public class App
          *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return an arraylist of the Capital class      */
         capitals = a.getLargestPopulatedCapitalCitiesFromWorld();
-        a.displayCapitals(capitals, "Query 3: return an arraylist of the capital cities within the world");
+        a.displayCapitals(capitals, "Query 4: return an arraylist of the capital cities within the world");
 
 
 
@@ -301,7 +301,6 @@ public class App
             String strSelect =
                     "SELECT city.Name, country.Name, city.District, city.Population "
                             + " FROM city JOIN country ON (city.CountryCode = country.Code) "
-                            + " WHERE country.Name = 'United Kingdom' "
                             + " ORDER BY Population DESC "
                             + " LIMIT 10 ";
             // Execute SQL statement
