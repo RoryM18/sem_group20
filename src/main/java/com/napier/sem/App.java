@@ -36,10 +36,10 @@ public class App
 
 
 
-        /**Name: getCities / Query 1
-         *description: To return an arraylist of the cities within the world database
+        /**Name: getCapitals / Query 1
+         *description: To return an arraylist of the capital cities within the world database
          *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
-         * @return an arraylist of the City class      */
+         * @return an arraylist of the Capital class      */
         ArrayList<Capitals> capitals = a.getCapitals();
         a.displayCapitals(capitals, "Query 1: return an arraylist of the cities within the world");
 
@@ -96,10 +96,10 @@ public class App
 
 
     /**
-     * Name: getCities
-     * description: To return an arraylist of the cities within the world database
+     * Name: getCapitals
+     * description: To return an arraylist of the capital cities within the world database
      * and intellij / the program.
-     * @return an arraylist of the City class
+     * @return an arraylist of the Capitals class
      */
     public ArrayList getCapitals()
     {
@@ -131,7 +131,7 @@ public class App
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get City details");
+            System.out.println("Failed to get Capital City details");
             return null;
         }
     }
@@ -514,7 +514,7 @@ public class App
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get City details");
+            System.out.println("Failed to get Capital City details");
             return null;
         }
     }
@@ -524,7 +524,7 @@ public class App
         // Check cities is not null
         if (capitals == null)
         {
-            System.out.println("No cities in arrayList");
+            System.out.println("No capital cities in arrayList");
             return;
         }
         System.out.println("\n\n\n" + query);
