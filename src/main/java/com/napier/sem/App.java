@@ -1,7 +1,12 @@
 package com.napier.sem;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.math.RoundingMode;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
+
 
 
 /**
@@ -32,93 +37,86 @@ public class App
         }
 
 
-        // invoke a function to get the Cities as an arraylist
-
-
-
-        /**Name: getCities / Query 1
-         *description: To return an arraylist of the cities within the world database
+        /**Name: getWolrdPopulation / Query 1
+         *description: To return the report on the population the world
          *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
-         * @return an arraylist of the City class      */
-        ArrayList<City> cities = a.getCities();
-        a.displayCities(cities, "Query 1: return an arraylist of the cities within the world");
+         * @return a string on the report    */
+        String details = a.getWorldPopulation();
+        a.displayCities(details, "Query 1: return the report on the population of the world");
+
+
+        /**Name: getContinentPopulation / Query 2
+         *description: To return the report on the population a continent
+         *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
+         * @return a string on the report    */
+         details = a.getContinentPopulation();
+        a.displayCities(details, "Query 2: return the report on the population of a continent");
 
 
 
-        /**Name: getCitiesByAContinent / Query 2
-         *description: To return an arraylist of the cities within a Continent
-         * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
-         * @return an arraylist of the city class      */
-        cities = a.getCitiesByAContinent();
-        // Invoke a function to display the results of the query to the user
-        a.displayCities(cities, "Query 2: return an arraylist of the cities within a continent");
+        /**Name: getRegionPopulation / Query 3
+         *description: To return the report on the population a Region
+         *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
+         * @return a string on the report    */
+        details = a.getRegionPopulation();
+        a.displayCities(details, "Query 3: return the report on the population of a region");
 
 
-        /**Name: getCitiesByRegion / Query 3
-         *description: To return an arraylist of the cities within a region
-         * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
-         * @return an arraylist of the city class      */
-        cities = a.getCitiesByRegion();
-        // Invoke a function to display the results of the query to the user
-        a.displayCities(cities, "Query 3: return an arraylist of the cities within a region");
+        /**Name: getCountryPopulation / Query 4
+         *description: To return the report on the population a country
+         *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
+         * @return a string on the report    */
+        details = a.getCountryPopulation();
+        a.displayCities(details, "Query 4: return the report on the population of a country");
+
+        /**Name: getDistrictPopulation / Query 5
+         *description: To return the report on the population a district
+         *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
+         * @return a string on the report    */
+        details = a.getDistrictPopulation();
+        a.displayCities(details, "Query 5: return the report on the population of a district");
 
 
-        /**Name: getCitiesByCountry / Query 4
-         *description: To return an arraylist of the cities within a Country
-         * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
-         * @return an arraylist of the city class      */
-        cities = a.getCitiesByACountry();
-        // Invoke a function to display the results of the query to the user
-        a.displayCities(cities, "Query 4: return an arraylist of the cities within a Country");
+
+        /**Name: getOnlyWorldPopulation/ Query 6
+         *description: To return the world population
+         *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
+         * @return a string on population   */
+        details =  a.getOnlyWorldPopulation();
+        a.displayCities(details, "Query 6: return the population of the world");
 
 
-        /**Name: getCitiesByDistrict / Query 5
-         *description: To return an arraylist of the cities within a distric
-         * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
-         * @return an arraylist of the city class      */
-        cities = a.getCitiesByADistrict();
-        // Invoke a function to display the results of the query to the user
-        a.displayCities(cities, "Query 5: return an arraylist of the cities within a District");
+        /**Name: getOnlyContinentPopulation/ Query 7
+         *description: To return a continents population
+         *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
+         * @return a string on population   */
+        details =  a.getOnlyContinentPopulation();
+        a.displayCities(details, "Query 7: return the population of a continent");
 
-        /**Name: getLargestPopulatedCitiesFromWorld / Query 6
-         *description: To return an arraylist of the selected number of cities within world
-         * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
-         * @return an arraylist of the city class      */
-        cities = a.getLargestPopulatedCitiesFromWorld();
-        // Invoke a function to display the results of the query to the user
-        a.displayCities(cities, "Query 6: return an arraylist of the selected number of cities within world");
+        /**Name: getOnlyRegionPopulation/ Query 8
+         *description: To return a region population
+         *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
+         * @return a string on population   */
+        details =  a.getOnlyRegionPopulation();
+        a.displayCities(details, "Query 8: return the population of a region");
 
-        /**Name: getLargestPopulatedCitiesFromAContinent / Query 7
-         *description: To return an arraylist of the selected number of cities within world of a selected continent
-         * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
-         * @return an arraylist of the city class      */
-        cities = a.getLargestPopulatedCitiesFromAContinent();
-        // Invoke a function to display the results of the query to the user
-        a.displayCities(cities, "Query 7: return an arraylist of the selected number of cities within world of a selected continent");
 
-        /**Name: getLargestPopulatedCitiesFromARegion / Query 8
-         *description: To return an arraylist of the selected number of cities within world of a selected Region
-         * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
-         * @return an arraylist of the city class      */
-        cities = a.getLargestPopulatedCitiesFromARegion();
-        // Invoke a function to display the results of the query to the user
-        a.displayCities(cities, "Query 8: return an arraylist of the selected number of cities within world of a selected Region");
+        /**Name: getOnlyCountryPopulation/ Query 9
+         *description: To return a country population
+         *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
+         * @return a string on population   */
+        details =  a.getOnlyCountryPopulation();
+        a.displayCities(details, "Query 9: return the population of a country");
 
-        /**Name: getLargestPopulatedCitiesFromACountry / Query 9
-         *description: To return an arraylist of the selected number of cities within world of a selected Country
-         * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
-         * @return an arraylist of the city class      */
-        cities = a.getLargestPopulatedCitiesFromACountry();
-        // Invoke a function to display the results of the query to the user
-        a.displayCities(cities, "Query 9: return an arraylist of the selected number of cities within world of a selected Country");
 
-        /**Name: getLargestPopulatedCitiesFromADistrict / Query 10
-         *description: To return an arraylist of the selected number of cities within world of a selected District
-         * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
-         * @return an arraylist of the city class      */
-        cities = a.getLargestPopulatedCitiesFromADistrict();
-        // Invoke a function to display the results of the query to the user
-        a.displayCities(cities, "Query 10: return an arraylist of the selected number of cities within world of a selected District");
+
+/**Name: getOnlyDistrictPopulation/ Query 10
+ *description: To return a distrcits population
+ *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
+ * @return a string on population   */
+        details =  a.getOnlyDistrictPopulation();
+        a.displayCities(details, "Query 10: return the population of a district");
+
 
 
         a.disconnect();
@@ -172,13 +170,21 @@ public class App
 
 
     /**
-     * Name: getCities
-     * description: To return an arraylist of the cities within the world database
+     * Name: getWorldPopulation
+     * description: To return the population report on the world
      * and intellij / the program.
-     * @return an arraylist of the City class
+     * @return
      */
-    public ArrayList getCities()
+    public String getWorldPopulation()
     {
+        String details = "";
+        long totalPopulation = -1;
+        long cityPopulation = -1;
+        //name of the area
+        String area ="World";
+        BigDecimal tp = new BigDecimal(0);
+        BigDecimal cp = new BigDecimal(0);
+
         try
         {
 
@@ -186,41 +192,190 @@ public class App
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.Name, country.Name, city.District, city.Population "
-                            + " FROM city JOIN country ON (city.CountryCode = country.Code) "
-                            + " ORDER BY Population DESC";
+                    "SELECT SUM(country.Population) FROM country";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return countries
-            ArrayList cities = new ArrayList<City>();
+
+
             while (rset.next())
             {
-                City city = new City();
-                city.name = rset.getString("city.Name");
-                city.district = rset.getString("District");
-                city.population = rset.getInt("city.Population");
-                city.country = rset.getString("country.Name");
-                cities.add(city);
+             //population of the wolrd
+              tp = rset.getBigDecimal("SUM(country.Population)");
             }
-            return cities;
+
+
+            details = area + ", "+ tp + ", ";
+
+
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get City details");
-            return null;
+            System.out.println("Failed to get total Population details");
+            return details;
         }
+        try
+        {
+
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT SUM(Population) FROM city";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return countries
+
+
+
+            while (rset.next())
+            {
+                //population of the wolrd
+                cp = rset.getBigDecimal("SUM(Population)");
+            }
+
+
+            BigDecimal ncp = tp;
+            ncp = ncp.subtract(cp);
+            ncp = ncp.multiply(new BigDecimal(100));
+            ncp = ncp.divide(tp, 2, RoundingMode.HALF_UP);
+
+
+            cp = cp.multiply(new BigDecimal(100));
+            cp = cp.divide(tp, 2, RoundingMode.HALF_UP);
+
+
+
+            details = details +  cp + "%, " + ncp+ "%";
+
+
+
+
+            return details;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get city Population details");
+            return details;
+        }
+
+    }
+
+
+
+
+
+    /**
+     * Name: getContinentPopulation
+     * description: To return the population report on a continent
+     * and intellij / the program.
+     * @return
+     */
+    public String getContinentPopulation()
+    {
+        String details = "";
+
+        //name of the area
+        String area ="";
+        BigDecimal tp = new BigDecimal(0);
+        BigDecimal cp = new BigDecimal(0);
+
+        try
+        {
+
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT Continent, SUM(country.Population) FROM country WHERE Continent = 'Asia'";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return countries
+
+
+            while (rset.next())
+            {
+                //population of the wolrd
+                tp = rset.getBigDecimal("SUM(country.Population)");
+                area = rset.getString("Continent");
+            }
+
+
+            details = area + ", "+ tp + ", ";
+
+
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get total Population details");
+            return details;
+        }
+        try
+        {
+
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT SUM(city.Population) FROM country JOIN city ON (country.Code = city.countryCode) WHERE Continent = 'Asia'";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return countries
+
+
+            while (rset.next())
+            {
+                //population of the wolrd
+                cp = rset.getBigDecimal("SUM(city.Population)");
+            }
+
+
+            BigDecimal ncp = tp;
+            ncp = ncp.subtract(cp);
+            ncp = ncp.multiply(new BigDecimal(100));
+            ncp = ncp.divide(tp, 2, RoundingMode.HALF_UP);
+
+
+            cp = cp.multiply(new BigDecimal(100));
+            cp = cp.divide(tp, 2, RoundingMode.HALF_UP);
+
+
+
+            details = details +  cp + "%, " + ncp+ "%";
+
+
+
+
+            return details;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get city Population details");
+            return details;
+        }
+
     }
 
 
     /**
-     * Name: getCitiesInAContinent
-     * description: To return an arraylist of the cities within the world database
+     * Name: getRegionPopulation
+     * description: To return the population report on a region
      * and intellij / the program.
-     * @return an arraylist of the City class
+     * @return
      */
-    public ArrayList getCitiesByAContinent()
+    public String getRegionPopulation()
     {
+        String details = "";
+
+        //name of the area
+        String area ="";
+        BigDecimal tp = new BigDecimal(0);
+        BigDecimal cp = new BigDecimal(0);
+
         try
         {
 
@@ -228,42 +383,256 @@ public class App
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.Name, country.Name, city.District, city.Population "
-                            + " FROM city JOIN country ON (city.CountryCode = country.Code) "
-                            + " WHERE Continent = 'Oceania' "
-                            + " ORDER BY Population DESC";
+                    "SELECT Region, SUM(country.Population) FROM country WHERE Region = 'Caribbean'";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return countries
-            ArrayList cities = new ArrayList<City>();
+
+
             while (rset.next())
             {
-                City city = new City();
-                city.name = rset.getString("city.Name");
-                city.district = rset.getString("District");
-                city.population = rset.getInt("city.Population");
-                city.country = rset.getString("country.Name");
-                cities.add(city);
+                //population of the wolrd
+                tp = rset.getBigDecimal("SUM(country.Population)");
+                area = rset.getString("Region");
             }
-            return cities;
+
+
+            details = area + ", "+ tp + ", ";
+
+
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get City details");
-            return null;
+            System.out.println("Failed to get total Population details");
+            return details;
         }
+        try
+        {
+
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect = "SELECT SUM(city.Population) FROM country JOIN city ON (country.Code = city.countryCode) WHERE Region = 'Caribbean'";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return countries
+
+
+
+            while (rset.next())
+            {
+                //population of the wolrd
+                cp = rset.getBigDecimal("SUM(city.Population)");
+            }
+
+
+            BigDecimal ncp = tp;
+            ncp = ncp.subtract(cp);
+            ncp = ncp.multiply(new BigDecimal(100));
+            ncp = ncp.divide(tp, 2, RoundingMode.HALF_UP);
+
+
+            cp = cp.multiply(new BigDecimal(100));
+            cp = cp.divide(tp, 2, RoundingMode.HALF_UP);
+
+
+
+            details = details +  cp + "%, " + ncp+ "%";
+
+
+
+
+            return details;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get city Population details");
+            return details;
+        }
+
+    }
+
+
+
+
+    /**
+     * Name: getCountryPopulation
+     * description: To return the population report on a country
+     * and intellij / the program.
+     * @return
+     */
+    public String getCountryPopulation()
+    {
+        String details = "";
+
+        //name of the area
+        String area ="";
+        BigDecimal tp = new BigDecimal(0);
+        BigDecimal cp = new BigDecimal(0);
+
+        try
+        {
+
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT Name, SUM(country.Population) FROM country WHERE Name = 'India'";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return countries
+
+
+            while (rset.next())
+            {
+                //population of the wolrd
+                tp = rset.getBigDecimal("SUM(country.Population)");
+                area = rset.getString("Name");
+            }
+
+
+            details = area + ", "+ tp + ", ";
+
+
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get total Population details");
+            return details;
+        }
+        try
+        {
+
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT SUM(city.Population) FROM country JOIN city ON (country.Code = city.countryCode) WHERE country.Name = 'India'";
+            // Execute SQL statement
+
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return countries
+
+
+
+            while (rset.next())
+            {
+                //population of the wolrd
+                cp = rset.getBigDecimal("SUM(city.Population)");
+            }
+
+
+            BigDecimal ncp = tp;
+            ncp = ncp.subtract(cp);
+            ncp = ncp.multiply(new BigDecimal(100));
+            ncp = ncp.divide(tp, 2, RoundingMode.HALF_UP);
+
+
+            cp = cp.multiply(new BigDecimal(100));
+            cp = cp.divide(tp, 2, RoundingMode.HALF_UP);
+
+
+
+            details = details +  cp + "%, " + ncp+ "%";
+
+
+
+
+            return details;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get city Population details");
+            return details;
+        }
+
+    }
+
+
+    /**
+     * Name: getDistrictPopulation
+     * description: To return the population report on a district
+     * and intellij / the program.
+     * @return
+     */
+    public String getDistrictPopulation()
+    {
+        String details = "";
+
+        //name of the area
+        String area ="New York";
+        BigDecimal tp = new BigDecimal(0);
+        BigDecimal cp = new BigDecimal(0);
+
+        try
+        {
+
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect = "SELECT SUM(city.Population) FROM country JOIN city ON (country.Code = city.countryCode) WHERE District = 'New York'";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return countries
+
+
+
+            while (rset.next())
+            {
+                //population of the wolrd
+                tp = rset.getBigDecimal("SUM(city.Population)");
+                cp = rset.getBigDecimal("SUM(city.Population)");
+            }
+
+
+            BigDecimal ncp = tp;
+            ncp = ncp.subtract(cp);
+            ncp = ncp.multiply(new BigDecimal(100));
+            ncp = ncp.divide(tp, 2, RoundingMode.HALF_UP);
+
+
+            cp = cp.multiply(new BigDecimal(100));
+            cp = cp.divide(tp, 2, RoundingMode.HALF_UP);
+
+
+
+            details = details + area + ",  " + tp + ", " + cp + "%, " + ncp+ "%";
+
+
+
+
+            return details;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get city Population details");
+            return details;
+        }
+
     }
 
 
 
 
 
-    /**Name: getCitiesByRegion / Query 3
-     *description: To return an arraylist of the cities within a region
-     * @return an arraylist of the city class      */
-    public ArrayList getCitiesByRegion()
+
+
+    /**
+     * Name: getOnlyWorldPopulation
+     * description: To return the population of the world
+     * and intellij / the program.
+     * @return
+     */
+    public String getOnlyWorldPopulation()
     {
+        String details = "World, ";
+        BigDecimal tp = new BigDecimal(0);
+
         try
         {
 
@@ -271,82 +640,46 @@ public class App
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.Name, country.Name, city.District, city.Population "
-                            + " FROM city JOIN country ON (city.CountryCode = country.Code) "
-                            + " WHERE Region = 'British Islands' "
-                            + " ORDER BY Population DESC";
+                    "SELECT SUM(country.Population) FROM country";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return countries
-            ArrayList cities = new ArrayList<City>();
+
+
             while (rset.next())
             {
-                City city = new City();
-                city.name = rset.getString("city.Name");
-                city.district = rset.getString("District");
-                city.population = rset.getInt("city.Population");
-                city.country = rset.getString("country.Name");
-                cities.add(city);
+                //population of the wolrd
+                tp = rset.getBigDecimal("SUM(country.Population)");
             }
-            return cities;
+
+
+            details = details + tp;
+
+        return details;
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get City details");
-            return null;
+            System.out.println("Failed to get total Population details");
+            return details;
         }
-    }
 
-
-    /**Name: getCitiesByCountry / Query 4
-     *description: To return an arraylist of the cities within a City
-     * @return an arraylist of the city class      */
-    public ArrayList getCitiesByACountry()
-    {
-        try
-        {
-
-            // Create an SQL statement
-            Statement stmt = con.createStatement();
-            // Create string for SQL statement
-            String strSelect =
-                    "SELECT city.Name, country.Name, city.District, city.Population "
-                            + " FROM city JOIN country ON (city.CountryCode = country.Code) "
-                            + " WHERE country.Name = 'United Kingdom' "
-                            + " ORDER BY Population DESC";
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
-            // Return countries
-            ArrayList cities = new ArrayList<City>();
-            while (rset.next())
-            {
-                City city = new City();
-                city.name = rset.getString("city.Name");
-                city.district = rset.getString("District");
-                city.population = rset.getInt("city.Population");
-                city.country = rset.getString("country.Name");
-                cities.add(city);
-            }
-            return cities;
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get City details");
-            return null;
-        }
     }
 
 
 
 
-
-    /**Name: getCitiesByDistrict / Query 5
-     *description: To return an arraylist of the cities within a district
-     * @return an arraylist of the city class      */
-    public ArrayList getCitiesByADistrict()
+    /**
+     * Name: getOnlyContinentPopulation
+     * description: To return the population of a continent
+     * and intellij / the program.
+     * @return
+     */
+    public String getOnlyContinentPopulation()
     {
+        String details = "Asia, ";
+        BigDecimal tp = new BigDecimal(0);
+
         try
         {
 
@@ -354,41 +687,133 @@ public class App
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.Name, country.Name, city.District, city.Population "
-                            + " FROM city JOIN country ON (city.CountryCode = country.Code) "
-                            + " WHERE District = 'Scotland' "
-                            + " ORDER BY Population DESC";
+                    "SELECT SUM(country.Population) FROM country WHERE Continent = 'Asia'";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return countries
-            ArrayList cities = new ArrayList<City>();
+
+
             while (rset.next())
             {
-                City city = new City();
-                city.name = rset.getString("city.Name");
-                city.district = rset.getString("District");
-                city.population = rset.getInt("city.Population");
-                city.country = rset.getString("country.Name");
-                cities.add(city);
+                //population of the wolrd
+                tp = rset.getBigDecimal("SUM(country.Population)");
             }
-            return cities;
+
+
+            details = details + tp;
+
+            return details;
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get City details");
-            return null;
+            System.out.println("Failed to get total Population details");
+            return details;
         }
+
+    }
+
+
+    /**
+     * Name: getOnlyRegionPopulation
+     * description: To return the population of a region
+     * and intellij / the program.
+     * @return
+     */
+    public String getOnlyRegionPopulation()
+    {
+        String details = "Carribean, ";
+        BigDecimal tp = new BigDecimal(0);
+
+        try
+        {
+
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT SUM(country.Population) FROM country WHERE Region = 'Caribbean'";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return countries
+
+
+            while (rset.next())
+            {
+                //population of the wolrd
+                tp = rset.getBigDecimal("SUM(country.Population)");
+            }
+
+
+            details = details + tp;
+
+            return details;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get total Population details");
+            return details;
+        }
+
+    }
+
+
+    /**
+     * Name: getOnlyCountryPopulation
+     * description: To return the population of the world
+     * and intellij / the program.
+     * @return
+     */
+    public String getOnlyCountryPopulation()
+    {
+        String details = "India, ";
+        BigDecimal tp = new BigDecimal(0);
+
+        try
+        {
+
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT SUM(country.Population) FROM country WHERE Name = 'India'";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return countries
+
+
+            while (rset.next())
+            {
+                //population of the wolrd
+                tp = rset.getBigDecimal("SUM(country.Population)");
+            }
+
+
+            details = details + tp;
+
+            return details;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get total Population details");
+            return details;
+        }
+
     }
 
     /**
-     * Name: getCities
-     * description: To return an arraylist of the cities within the world database
+     * Name: getOnlyWorldPopulation
+     * description: To return the population of the world
      * and intellij / the program.
-     * @return an arraylist of the City class
+     * @return
      */
-    public ArrayList getLargestPopulatedCitiesFromWorld()
+    public String getOnlyDistrictPopulation()
     {
+        String details = "New York, ";
+        BigDecimal tp = new BigDecimal(0);
+
         try
         {
 
@@ -396,226 +821,58 @@ public class App
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.Name, country.Name, city.District, city.Population "
-                            + " FROM city JOIN country ON (city.CountryCode = country.Code) "
-                            + " ORDER BY Population DESC"
-                            + " LIMIT 10 ";
+                    "SELECT SUM(city.Population) FROM city WHERE District = 'New York'";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return countries
-            ArrayList cities = new ArrayList<City>();
+
+
             while (rset.next())
             {
-                City city = new City();
-                city.name = rset.getString("city.Name");
-                city.district = rset.getString("District");
-                city.population = rset.getInt("city.Population");
-                city.country = rset.getString("country.Name");
-                cities.add(city);
+                //population of the wolrd
+                tp = rset.getBigDecimal("SUM(city.Population)");
             }
-            return cities;
+
+
+            details = details + tp;
+
+            return details;
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get City details");
-            return null;
+            System.out.println("Failed to get total Population details");
+            return details;
         }
+
     }
 
-    /**
-     * Name: getLargestPopulatedCitiesFromAContinent
-     * description: To return an arraylist of the cities within the world database from a specific continent
-     * and intellij / the program.
-     * @return an arraylist of the City class
-     */
-    public ArrayList getLargestPopulatedCitiesFromAContinent()
+
+
+    public void displayCities(String details, String info)
     {
-        try
-        {
-
-            // Create an SQL statement
-            Statement stmt = con.createStatement();
-            // Create string for SQL statement
-            String strSelect =
-                    "SELECT city.Name, country.Name, city.District, city.Population "
-                            + " FROM city JOIN country ON (city.CountryCode = country.Code) "
-                            + " WHERE Continent = 'Oceania' "
-                            + " ORDER BY Population DESC "
-                            + " LIMIT 10 ";
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
-            // Return countries
-            ArrayList cities = new ArrayList<City>();
-            while (rset.next())
-            {
-                City city = new City();
-                city.name = rset.getString("city.Name");
-                city.district = rset.getString("District");
-                city.population = rset.getInt("city.Population");
-                city.country = rset.getString("country.Name");
-                cities.add(city);
-            }
-            return cities;
+        System.out.println(info);
+        if (details.contains("%")) {
+            System.out.println("Area, Total Population, % living in cities, % not living in cities");
         }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get City details");
-            return null;
-        }
-    }
+        System.out.println(details + " \n");
 
-    /**
-     * Name: getLargestPopulatedCitiesFromARegion
-     * description: To return an arraylist of the cities within the world database from a specific Region
-     * and intellij / the program.
-     * @return an arraylist of the City class
-     */
-    public ArrayList getLargestPopulatedCitiesFromARegion()
-    {
-        try
-        {
+      /*  BigDecimal tp = new BigDecimal("6078749450");
+        BigDecimal cp = new BigDecimal("1429559884");
 
-            // Create an SQL statement
-            Statement stmt = con.createStatement();
-            // Create string for SQL statement
-            String strSelect =
-                    "SELECT city.Name, country.Name, city.District, city.Population "
-                            + " FROM city JOIN country ON (city.CountryCode = country.Code) "
-                            + " WHERE Region = 'British Islands' "
-                            + " ORDER BY Population DESC "
-                            + " LIMIT 10 ";
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
-            // Return countries
-            ArrayList cities = new ArrayList<City>();
-            while (rset.next())
-            {
-                City city = new City();
-                city.name = rset.getString("city.Name");
-                city.district = rset.getString("District");
-                city.population = rset.getInt("city.Population");
-                city.country = rset.getString("country.Name");
-                cities.add(city);
-            }
-            return cities;
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get City details");
-            return null;
-        }
-    }
 
-    /**
-     * Name: getLargestPopulatedCitiesFromACountry
-     * description: To return an arraylist of the cities within the world database from a specific country
-     * and intellij / the program.
-     * @return an arraylist of the City class
-     */
-    public ArrayList getLargestPopulatedCitiesFromACountry()
-    {
-        try
-        {
+        BigDecimal answer = cp;
+        System.out.println(answer);
 
-            // Create an SQL statement
-            Statement stmt = con.createStatement();
-            // Create string for SQL statement
-            String strSelect =
-                    "SELECT city.Name, country.Name, city.District, city.Population "
-                            + " FROM city JOIN country ON (city.CountryCode = country.Code) "
-                            + " WHERE country.Name = 'United Kingdom' "
-                            + " ORDER BY city.Population DESC "
-                            + " LIMIT 10 ";
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
-            // Return countries
-            ArrayList cities = new ArrayList<City>();
-            while (rset.next())
-            {
-                City city = new City();
-                city.name = rset.getString("city.Name");
-                city.district = rset.getString("District");
-                city.population = rset.getInt("city.Population");
-                city.country = rset.getString("country.Name");
-                cities.add(city);
-            }
-            return cities;
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get City details");
-            return null;
-        }
-    }
+        answer = answer.multiply(new BigDecimal(100));
+        System.out.println(answer);
 
-    /**
-     * Name: getLargestPopulatedCitiesFromADistrict
-     * description: To return an arraylist of the cities within the world database from a specific District
-     * and intellij / the program.
-     * @return an arraylist of the City class
-     */
-    public ArrayList getLargestPopulatedCitiesFromADistrict()
-    {
-        try
-        {
+        answer = answer.divide(tp, 2, RoundingMode.HALF_UP);
+        System.out.println(answer);
+*/
 
-            // Create an SQL statement
-            Statement stmt = con.createStatement();
-            // Create string for SQL statement
-            String strSelect =
-                    "SELECT city.Name, country.Name, city.District, city.Population "
-                            + " FROM city JOIN country ON (city.CountryCode = country.Code) "
-                            + " WHERE District = 'Scotland' "
-                            + " ORDER BY Population DESC "
-                            + " LIMIT 10 ";
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
-            // Return countries
-            ArrayList cities = new ArrayList<City>();
-            while (rset.next())
-            {
-                City city = new City();
-                city.name = rset.getString("city.Name");
-                city.district = rset.getString("District");
-                city.population = rset.getInt("city.Population");
-                city.country = rset.getString("country.Name");
-                cities.add(city);
-            }
-            return cities;
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get City details");
-            return null;
-        }
-    }
 
-    public void displayCities(ArrayList<City> cities, String query)
-    {
-        // Check cities is not null
-        if (cities == null)
-        {
-            System.out.println("No cities is arrayList");
-            return;
-        }
-        System.out.println("\n\n\n" + query);
 
-        for (City city: cities) {
-
-            if (city == null)
-                continue;
-            String details = (
-                    city.name + ", " +
-                    city.country + ", "
-                    + city.district + ", "
-                    + city.population);
-
-            System.out.println(details);
-        }
     }
 }
+

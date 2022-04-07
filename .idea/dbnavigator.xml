@@ -28,11 +28,41 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="91f19968-ffae-4143-85a3-2129263cca7a">
-      <console name="world" type="STANDARD" schema="mysql" session="Main" />
+      <console name="world" type="STANDARD" schema="world" session="Main"><![CDATA[SELECT country.Name, SUM(city.Population) FROM country JOIN city ON (city.countryCode = country.code) GROUP BY country.Name; /*1116407517150*/
+
+SELECT SUM(city.Population)  FROM country JOIN city ON (country.code = city.countryCode);   /*1429559884*/
+
+
+SELECT SUM(Population) FROM country WHERE Name = 'India'; /*6078749450*/
+SELECT SUM(Population) FROM city;                         /*1429559884*/
+
+
+SELECT COUNT(*) FROM country; /*239*/
+SELECT Population FROM city WHERE Name ='Oranjestad';    
+
+
+SELECT city.Population FROM city JOIN country ON (city.countryCode = country.code)  WHERE city.Name ='Oranjestad';
+
+
+SELECT COUNT(country.Name) FROM country left JOIN city ON (city.countryCode = country.ode);
+
+
+
+SELECT country.continent, SUM(country.population), SUM(city.population), SUM(country.population - city.population) FROM city JOIN country ON (city.countryCode = country.code) GROUP BY country.continent;
+
+
+
+
+
+
+SELECT SUM(Population) FROM country;
+SELECT SUM(Population) FROM city ;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="91f19968-ffae-4143-85a3-2129263cca7a" object-ref="consoles/world" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="91f19968-ffae-4143-85a3-2129263cca7a" />
@@ -62,7 +92,9 @@
     <diagnostics-history />
   </component>
   <component name="DBNavigator.Project.ScriptExecutionManager" clear-outputs="true">
-    <recently-used-interfaces />
+    <recently-used-interfaces>
+      <mapping database-type="MYSQL" interface-id="DEFAULT" />
+    </recently-used-interfaces>
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
