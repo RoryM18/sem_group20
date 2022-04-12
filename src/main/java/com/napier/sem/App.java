@@ -498,6 +498,7 @@ public class App
 
         System.out.println("\n\n\n");
     }
+
     public void displayCities(ArrayList<City> cities, String query)
     {
         // Check cities is not null
@@ -513,13 +514,37 @@ public class App
             if (city == null)
                 continue;
             String details = (
-                    city.name + ", " +
-                            city.country + ", "
-                            + city.district + ", "
-                            + city.population);
+                            city.id + ", " +
+                            city.name + ", " +
+                            city.countryCode + ", " +
+                            city.district + ", " +
+                            city.population);
 
             System.out.println(details);
         }
     }
 
+    public void displayCountryLanguage(ArrayList<CountryLanguage> countrylanguages, String query)
+    {
+        // Check cities is not null
+        if (countrylanguages == null)
+        {
+            System.out.println("No Country Languages is arrayList");
+            return;
+        }
+        System.out.println("\n\n\n" + query);
+
+        for (CountryLanguage countrylanguage: countrylanguages) {
+
+            if (countrylanguage == null)
+                continue;
+            String details = (
+                            countrylanguage.countryCode + ", " +
+                            countrylanguage.Language + ", " +
+                            countrylanguage.isOfficial + ", " +
+                            countrylanguage.percentage );
+
+            System.out.println(details);
+        }
+    }
 }

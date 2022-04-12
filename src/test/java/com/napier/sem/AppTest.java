@@ -62,4 +62,51 @@ public class AppTest {
         ArrayList<City> cities = new ArrayList<City>();
         app.displayCities(cities, "tests displaying empty");
     }
+
+    @Test
+    void displayCitiesNull() {
+        ArrayList<City> cities = new ArrayList<City>();
+        cities.add(null);
+        app.displayCities(cities, "tests displaying null");
+    }
+
+    @Test
+    void displayCities() {
+        ArrayList<City> cities = new ArrayList<City>();
+        City city = new City();
+        city.id = 1;
+        city.name = "Kabul";
+        city.countryCode = "AFG";
+        city.district = "Kabol";
+        city.population = 1780000;
+
+        cities.add(city);
+        app.displayCities(cities, "tests displaying a test city");
+    }
+
+    @Test
+    void displayLanguageEmpty() {
+        ArrayList<CountryLanguage> countrylanguages = new ArrayList<CountryLanguage>();
+        app.displayCountryLanguage(countrylanguages, "tests displaying empty");
+    }
+
+    @Test
+    void displayLanguageNull() {
+        ArrayList<CountryLanguage> countrylanguages = new ArrayList<CountryLanguage>();
+        countrylanguages.add(null);
+        app.displayCountryLanguage(countrylanguages, "tests displaying null");
+    }
+
+    @Test
+    void displayLanguage() {
+        ArrayList<CountryLanguage> countrylanguages = new ArrayList<CountryLanguage>();
+        CountryLanguage countrylanguage = new CountryLanguage();
+        countrylanguage.countryCode = "ABW";
+        countrylanguage.Language = "Dutch";
+        countrylanguage.isOfficial = "T";
+        countrylanguage.percentage = (float) 5.3;
+
+        countrylanguages.add(countrylanguage);
+        app.displayCountryLanguage(countrylanguages, "tests displaying a test city");
+    }
 }
