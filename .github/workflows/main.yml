@@ -19,7 +19,7 @@ jobs:
           distribution: 'adopt'
       - name: Unit Tests
         run: mvn -Dtest=com.napier.sem.AppTest test
-       - name: CodeCov
+      - name: CodeCov
        uses: codecov/codecov-action@v2
        with:
          # token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
