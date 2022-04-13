@@ -20,12 +20,12 @@ jobs:
       - name: Unit Tests
         run: mvn -Dtest=com.napier.sem.AppTest test
       - name: CodeCov
-       uses: codecov/codecov-action@v2
-       with:
-         # token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
-         directory: ./target/site/jacoco
-         flags: Unit Tests # optional
-         verbose: true # optional (default = false)
+        uses: codecov/codecov-action@v2
+        with:
+          # token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          directory: ./target/site/jacoco
+          flags: Unit Tests # optional
+          verbose: true # optional (default = false)
 
   IntegrationTests:
     name: Integration Tests
