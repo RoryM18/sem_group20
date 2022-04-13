@@ -445,6 +445,38 @@ public class App
     {
         if (countries == null)
         {
+            System.out.println("No Countries in the arrayList");
+            return;
+        }
+        // Print out query name
+        System.out.println(queryName);
+
+
+        // Print out the queries in the arraylist
+        for (Country country: countries) {
+
+            if (country == null)
+                continue;
+            String details = ("" + country.name + ", " + country.code +
+                    ", " + country.continent + ", " + country.region +
+                    ", " + country.population + ", " + country.capital);
+
+            System.out.println(details);
+        }
+
+        System.out.println("\n\n\n");
+    }
+
+    /**
+     * Name: displayCountries
+     * description: Print the details to do with every country and their population in descending order
+     * @param countries Arraylist of the Country class
+     */
+
+    public void displayCountries2(ArrayList<Country> countries, String queryName)
+    {
+        if (countries == null)
+        {
             System.out.println("No Countries could be found");
             return;
         }
@@ -457,7 +489,12 @@ public class App
 
             String details = ("" + country.name + ", " + country.code +
                     ", " + country.continent + ", " + country.region +
-                    ", " + country.population + ", " + country.capital);
+                    ", " + country.population + ", " + country.capital +
+                    ", " + country.surfaceArea + ", " + country.indepYear +
+                    ", " + country.lifeExpectancy + ", "+ country.gnp +
+                    ", " + country.gnpOld + ", " + country.localName +
+                    ", " + country.govermentForm + ", " + country.HeadOfState +
+                    ", " + country.code2);
 
             System.out.println(details);
         }
@@ -465,6 +502,53 @@ public class App
         System.out.println("\n\n\n");
     }
 
+    public void displayCities(ArrayList<City> cities, String query)
+    {
+        // Check cities is not null
+        if (cities == null)
+        {
+            System.out.println("No cities is arrayList");
+            return;
+        }
+        System.out.println("\n\n\n" + query);
 
+        for (City city: cities) {
+
+            if (city == null)
+                continue;
+            String details = (
+                            city.id + ", " +
+                            city.name + ", " +
+                            city.countryCode + ", " +
+                            city.district + ", " +
+                            city.population);
+
+            System.out.println(details);
+        }
+    }
+
+    public void displayCountryLanguage(ArrayList<CountryLanguage> countrylanguages, String query)
+    {
+        // Check cities is not null
+        if (countrylanguages == null)
+        {
+            System.out.println("No Country Languages is arrayList");
+            return;
+        }
+        System.out.println("\n\n\n" + query);
+
+        for (CountryLanguage countrylanguage: countrylanguages) {
+
+            if (countrylanguage == null)
+                continue;
+            String details = (
+                            countrylanguage.countryCode + ", " +
+                            countrylanguage.Language + ", " +
+                            countrylanguage.isOfficial + ", " +
+                            countrylanguage.percentage );
+
+            System.out.println(details);
+        }
+    }
 
 }
