@@ -66,3 +66,4 @@ jobs:
           directory: ./target/site/jacoco
           flags: Unit Tests # optional
           verbose: true # optional (default = false)
+          CODECOV_TOKEN='aa8ce69d-df45-4568-9e45-be7c2f2f4a57'
