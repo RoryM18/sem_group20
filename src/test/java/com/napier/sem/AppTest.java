@@ -15,7 +15,7 @@ public class AppTest {
 
     @BeforeAll
     static void init() {
-        App a = new App();
+        app = new App();
 
     }
 
@@ -23,14 +23,14 @@ public class AppTest {
     @Test
     void displayCountriesEmpty() {
         ArrayList<Country> countries = new ArrayList<Country>();
-        app.displayCountries2(countries, "tests displaying empty");
+        app.displayCountries(countries, "tests displaying empty list of countries");
     }
 
     @Test
     void displayCountriesNull() {
         ArrayList<Country> countries = new ArrayList<Country>();
         countries.add(null);
-        app.displayCountries2(countries, "tests displaying null");
+        app.displayCountries(countries, "tests displaying null");
     }
 
     @Test
@@ -109,4 +109,6 @@ public class AppTest {
         countrylanguages.add(countrylanguage);
         app.displayCountryLanguage(countrylanguages, "tests displaying a test city");
     }
+
+
 }

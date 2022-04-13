@@ -445,7 +445,7 @@ public class App
     {
         if (countries == null)
         {
-            System.out.println("No Countries could be found");
+            System.out.println("No Countries in the arrayList");
             return;
         }
         // Print out query name
@@ -455,6 +455,8 @@ public class App
         // Print out the queries in the arraylist
         for (Country country: countries) {
 
+            if (country == null)
+                continue;
             String details = ("" + country.name + ", " + country.code +
                     ", " + country.continent + ", " + country.region +
                     ", " + country.population + ", " + country.capital);
@@ -470,6 +472,7 @@ public class App
      * description: Print the details to do with every country and their population in descending order
      * @param countries Arraylist of the Country class
      */
+
     public void displayCountries2(ArrayList<Country> countries, String queryName)
     {
         if (countries == null)
@@ -547,4 +550,5 @@ public class App
             System.out.println(details);
         }
     }
+
 }
