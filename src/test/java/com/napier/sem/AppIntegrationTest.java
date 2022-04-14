@@ -115,7 +115,7 @@ public class AppIntegrationTest
         cities = app.getCitiesByADistrict();
 
         int i = 0;
-        // checking the third line in the list of is correct (for Scotland)
+        // checking the tenth line in the list of is correct (for Scotland)
         for (City city: cities) {
 
             i++;
@@ -136,7 +136,7 @@ public class AppIntegrationTest
         cities = app.getLargestPopulatedCitiesFromWorld();
 
         int i = 0;
-        // checking the third line in the list of is correct (for the world)
+        // checking the tenth line in the list of is correct (for the world)
         for (City city: cities) {
 
             i++;
@@ -159,7 +159,7 @@ public class AppIntegrationTest
         cities = app.getLargestPopulatedCitiesFromAContinent();
 
         int i = 0;
-        // checking the third line in the list of is correct (for Oceania)
+        // checking the tenth line in the list of is correct (for Oceania)
         for (City city: cities) {
 
             i++;
@@ -180,7 +180,7 @@ public class AppIntegrationTest
         cities = app.getLargestPopulatedCitiesFromARegion();
 
         int i = 0;
-        // checking the third line in the list of is correct (for British islands)
+        // checking the tenth line in the list of is correct (for British islands)
         for (City city: cities) {
 
             i++;
@@ -201,7 +201,7 @@ public class AppIntegrationTest
         cities = app.getLargestPopulatedCitiesFromACountry();
 
         int i = 0;
-        // checking the third line in the list of is correct (for United Kingdom)
+        // checking the tenth in the list of is correct (for United Kingdom)
         for (City city: cities) {
 
             i++;
@@ -224,7 +224,7 @@ public class AppIntegrationTest
         cities = app.getLargestPopulatedCitiesFromADistrict();
 
         int i = 0;
-        // checking the third line in the list of is correct (for Scotland)
+        // checking the tenth line in the list of is correct (for Scotland)
         for (City city: cities) {
 
             i++;
