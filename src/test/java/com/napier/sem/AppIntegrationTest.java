@@ -22,4 +22,66 @@ public class AppIntegrationTest {
        String details = app.getWorldPopulation();
        assertEquals(details, "world, 6078749450, 24%, 76%");
     }
+
+    @Test
+    void getContinentPopulation()
+    {
+        String details = app.getContinentPopulation();
+        assertEquals(details, "Asia, 3705025700, 19%, 81%");
+    }
+    @Test
+    void getRegionPopulation()
+    {
+        String details = app.getRegionPopulation();
+        assertEquals(details, "Caribbean, 38140000, 29%, 71%");
+    }
+
+    @Test
+    void getCountryPopulation()
+    {
+        String details = app.getCountryPopulation();
+        assertEquals(details, "India, 1013662000, 12%, 88%");
+    }
+
+    @Test
+    void getDistrictPopulation()
+    {
+        String details = app.getCountryPopulation();
+        assertEquals(details, "New York, 8958085, 100%, 0%");
+    }
+
+    @Test
+    void getOnlyWorldPopulation()
+    {
+        String details = app.getOnlyWorldPopulation();
+        assertEquals(details, "World, 6078749450");
+    }
+
+    @Test
+    void getOnlyContinentPopulation()
+    {
+        String details = app.getOnlyWorldPopulation();
+        assertEquals(details, "Asia, 3705025700");
+    }
+
+    @Test
+    void getOnlyRegionPopulation()
+    {
+        String details = app.getOnlyWorldPopulation();
+        assertEquals(details, "Carribean, 38140000");
+    }
+
+    @Test
+    void getOnlyCountryPopulation()
+    {
+        String details = app.getOnlyWorldPopulation();
+        assertEquals(details, "India, 1013662000");
+    }
+
+    @Test
+    void getOnlyDistrictPopulation()
+    {
+        String details = app.getOnlyWorldPopulation();
+        assertEquals(details, "New York, 8958085");
+    }
 }
