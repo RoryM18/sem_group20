@@ -35,6 +35,7 @@ public class AppTest
     void displayCitiesNull()
     {
         ArrayList<City> cities = new ArrayList<City>();
+        cities.add(null);
         app.displayCities(cities, "checking if display show a null list");
     }
 
