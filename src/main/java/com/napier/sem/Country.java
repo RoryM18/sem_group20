@@ -9,7 +9,6 @@ package com.napier.sem;
 
 public class Country {
 
-
     /**
      *  Country code
      */
@@ -67,13 +66,10 @@ public class Country {
      */
     public String localName;
 
-
     /**
      * Country Name
      */
-public String name;
-
-
+    public String name;
 
     /**
      *Country Population
