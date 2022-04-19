@@ -1,6 +1,6 @@
 package com.napier.sem;
 
-public class Capitals {
+public class Capital {
 
     public int id;
 

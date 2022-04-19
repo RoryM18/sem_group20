@@ -31,7 +31,6 @@ public class App
             a.connect(args[0], Integer.parseInt(args[1]));
         }
 
-
         // invoke a function to get the Cities as an arraylist
 
 
@@ -40,7 +39,7 @@ public class App
          *description: To return an arraylist of the capital cities within the world database
          *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return an arraylist of the Capital class      */
-        ArrayList<Capitals> capitals = a.getCapitals();
+        ArrayList<Capital> capitals = a.getCapitals();
         a.displayCapitals(capitals, "Query 1: return an arraylist of the cities within the world");
 
         /**Name: getCapitalsByAContinent / Query 2
@@ -112,6 +111,7 @@ public class App
         }
     }
 
+
     public void disconnect() {
         // invoke a function to close the connection between the database and this program
         if (con != null)
@@ -152,10 +152,10 @@ public class App
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return countries
-            ArrayList capitals = new ArrayList<Capitals>();
+            ArrayList capitals = new ArrayList<Capital>();
             while (rset.next())
             {
-                Capitals capital = new Capitals();
+                Capital capital = new Capital();
                 capital.name = rset.getString("city.Name");
                 capital.country = rset.getString("country.Name");
                 capital.population = rset.getInt("city.Population");
@@ -194,10 +194,10 @@ public class App
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return countries
-            ArrayList capitals = new ArrayList<Capitals>();
+            ArrayList capitals = new ArrayList<Capital>();
             while (rset.next())
             {
-                Capitals capital = new Capitals();
+                Capital capital = new Capital();
                 capital.name = rset.getString("city.Name");
                 capital.country = rset.getString("country.Name");
                 capital.population = rset.getInt("city.Population");
@@ -239,10 +239,10 @@ public class App
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return countries
-            ArrayList capitals = new ArrayList<Capitals>();
+            ArrayList capitals = new ArrayList<Capital>();
             while (rset.next())
             {
-                Capitals capital = new Capitals();
+                Capital capital = new Capital();
                 capital.name = rset.getString("city.Name");
                 capital.country = rset.getString("country.Name");
                 capital.population = rset.getInt("city.Population");
@@ -278,10 +278,10 @@ public class App
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return countries
-            ArrayList capitals = new ArrayList<Capitals>();
+            ArrayList capitals = new ArrayList<Capital>();
             while (rset.next())
             {
-                Capitals capital = new Capitals();
+                Capital capital = new Capital();
                 capital.name = rset.getString("city.Name");
                 capital.country = rset.getString("country.Name");
                 capital.population = rset.getInt("city.Population");
@@ -320,10 +320,10 @@ public class App
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return countries
-            ArrayList capitals = new ArrayList<Capitals>();
+            ArrayList capitals = new ArrayList<Capital>();
             while (rset.next())
             {
-                Capitals capital = new Capitals();
+                Capital capital = new Capital();
                 capital.name = rset.getString("city.Name");
                 capital.country = rset.getString("country.Name");
                 capital.population = rset.getInt("city.Population");
@@ -362,10 +362,10 @@ public class App
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return countries
-            ArrayList capitals = new ArrayList<Capitals>();
+            ArrayList capitals = new ArrayList<Capital>();
             while (rset.next())
             {
-                Capitals capital = new Capitals();
+                Capital capital = new Capital();
                 capital.name = rset.getString("city.Name");
                 capital.country = rset.getString("country.Name");
                 capital.population = rset.getInt("city.Population");
@@ -510,7 +510,7 @@ public class App
         }
     }
 
-    public void displayCapitals(ArrayList<Capitals> capitals, String query)
+    public void displayCapitals(ArrayList<Capital> capitals, String query)
     {
         // Check cities is not null
         if (capitals == null)
@@ -520,7 +520,7 @@ public class App
         }
         System.out.println("\n\n\n" + query);
 
-        for (Capitals capital: capitals) {
+        for (Capital capital: capitals) {
 
             if (capital == null)
                 continue;
