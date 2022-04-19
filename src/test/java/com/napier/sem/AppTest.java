@@ -28,6 +28,13 @@ public class AppTest {
     }
 
     @Test
+    void displayCitiesNull() {
+        String details = null;
+        String info = null;
+        app.displayCities(details,info);
+    }
+
+    @Test
     void displayCities() {
         String detail = "Caribbean, 38140000, 29%, 71%";
         String info = "";
