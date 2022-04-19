@@ -38,7 +38,7 @@ public class AppTest
         app.displayCitiesDetails(details, "tests displaying a test city");
     }
 
-
+    @Test
     void createNullCountryLanguage()
     {
         CountryLanguage language = new CountryLanguage();
@@ -54,6 +54,7 @@ public class AppTest
 
     }
 
+    @Test
     void createEmptyCountryLanguage()
     {
 
@@ -71,6 +72,7 @@ public class AppTest
 
     }
 
+    @Test
     void createCapitalLanguage()
     {
         CountryLanguage language = new CountryLanguage();
