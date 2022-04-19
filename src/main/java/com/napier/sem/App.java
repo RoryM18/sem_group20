@@ -42,10 +42,7 @@ public class App
          *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return a string on the report    */
         String details = a.getLanguageReport();
-        a.displayCities(details, "return number of people who speak the following the following languages ('Chinese','Hindi','English','Spanish','Arabic') from greatest number to smallest, including the percentage of the world population:");
-
-
-
+        a.displayCitiesDetails(details, "return number of people who speak the following the following languages ('Chinese','Hindi','English','Spanish','Arabic') from greatest number to smallest, including the percentage of the world population:");
 
 
 
@@ -175,10 +172,6 @@ public class App
 
             }
 
-
-
-
-
             return details;
         }
         catch (Exception e)
@@ -190,14 +183,7 @@ public class App
 
     }
 
-
-
-
-
-
-
-
-    public void displayCities(String details, String info) {
+    public void displayCitiesDetails(String details, String info) {
         System.out.println(info);
         System.out.println(details);
     }
