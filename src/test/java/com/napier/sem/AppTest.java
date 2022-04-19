@@ -65,9 +65,13 @@ public class AppTest {
 
     @Test
     void displayCountries2Null() {
-        ArrayList<Country> countries = new ArrayList<Country>();
+        ArrayList<Country> countries = new ArrayList<>();
         countries.add(null);
         app.displayCountries2(countries, "tests displaying null");
+
+        //app.displayCountries2(null, "tests displaying null");
+        // displayCountries2 can display "null" , but not an array with a null value
+
     }
 
     @Test
@@ -147,6 +151,7 @@ public class AppTest {
         app.displayCountryLanguage(countrylanguages, "tests displaying a test city");
     }
 
+    @Test
     void createNullCountry()
     {
         Country country = new Country();
@@ -155,20 +160,21 @@ public class AppTest {
         country.continent = null;
         country.region = null;
         country.surfaceArea = Double.parseDouble(null);
-        country.indepYear = Integer.parseInt(null);
-        country.population = Integer.parseInt(null);
-        country.lifeExpectancy = Double.parseDouble(null);
-        country.gnp = Double.parseDouble(null);
-        country.gnpOld = Double.parseDouble(null);
+        //country.indepYear = Integer.parseInt(null);
+        //country.population = Integer.parseInt(null);
+        //country.lifeExpectancy = Double.parseDouble(null);
+        //country.gnp = Double.parseDouble(null);
+        //country.gnpOld = Double.parseDouble(null);
         country.localName = null;
         country.govermentForm = null;
         country.HeadOfState = null;
-        country.capital = Integer.parseInt(null);
+       // country.capital = Integer.parseInt(null);
         country.code2 = null;
 
 
     }
 
+    @Test
     void createEmptyCountry()
     {
 
@@ -178,20 +184,21 @@ public class AppTest {
         country.continent = "";
         country.region = "";
         country.surfaceArea = Double.parseDouble("");
-        country.indepYear = Integer.parseInt("");
-        country.population = Integer.parseInt("");
-        country.lifeExpectancy = Double.parseDouble("");
-        country.gnp = Double.parseDouble("");
-        country.gnpOld = Double.parseDouble("");
+       // country.indepYear = Integer.parseInt("");
+       // country.population = Integer.parseInt("");
+       // country.lifeExpectancy = Double.parseDouble("");
+        // country.gnp = Double.parseDouble("");
+        //country.gnpOld = Double.parseDouble("");
         country.localName = "";
         country.govermentForm = "";
         country.HeadOfState = "";
-        country.capital = Integer.parseInt("");
+        // country.capital = Integer.parseInt("");
         country.code2 = "";
 
 
     }
 
+    @Test
     void createCapital()
     {
         Country country = new Country();
