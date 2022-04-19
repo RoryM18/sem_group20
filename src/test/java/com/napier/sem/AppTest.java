@@ -14,13 +14,11 @@ public class AppTest
     static App app;
 
     @BeforeAll
-    @Disabled
     static void init()
     {
         app = new App();
     }
 
-    @Disabled
     @Test
     void DisplayCapitalsEmpty()
     {
@@ -28,12 +26,14 @@ public class AppTest
         app.displayCapitals(capitals, "Unit test for Display the capitals array when is empty");
     }
 
+    @Test
     void DisplayCapitalsNull()
     {
 
         app.displayCapitals(null, "Unit test for Display the capitals array when is has null values");
     }
 
+    @Test
     void DisplayCapitals()
     {
         ArrayList<Capital> capitals = new ArrayList<>();
@@ -51,11 +51,12 @@ public class AppTest
         app.displayCapitals(capitals , "Unit test for Display the capitals array");
     }
 
+    @Test
     void createNullCapital()
     {
         Capital c = new Capital();
 
-        c.id = Integer.parseInt(null);
+       //c.id = Integer.parseInt(null);
 
         c.name = null;
 
@@ -67,11 +68,12 @@ public class AppTest
 
     }
 
+    @Test
     void createEmptyCapital()
     {
         Capital c = new Capital();
 
-        c.id = Integer.parseInt("");
+        //c.id = Integer.parseInt("");
 
         c.name = "";
 
@@ -83,6 +85,7 @@ public class AppTest
 
     }
 
+    @Test
     void createCapital()
     {
         Capital c = new Capital();
