@@ -50,7 +50,7 @@ public class AppTest
 
         language.isOfficial = null;
 
-        language.percentage = Float.parseFloat(null);
+        language.percentage = -1;
 
     }
 
@@ -67,7 +67,7 @@ public class AppTest
 
         language.isOfficial = "";
 
-        language.percentage = Float.parseFloat("");
+        language.percentage = -1;
 
 
     }
@@ -83,7 +83,7 @@ public class AppTest
 
         language.isOfficial = "Yes";
 
-        language.percentage = Float.parseFloat("10");
+        language.percentage = 10;
     }
 
 }
