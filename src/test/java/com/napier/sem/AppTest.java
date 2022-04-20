@@ -54,4 +54,58 @@ public class AppTest
         app.displayCities(cities, "checking if display show a list");
     }
 
+    @Test
+    void createNullCity()
+    {
+        City c = new City();
+
+        c.id = -1;
+
+        c.name = null;
+
+        c.country = null;
+
+        c.population = -1;
+
+        c.countryCode = null;
+
+    }
+
+    @Test
+    void createEmptyCity()
+    {
+        City c = new City();
+
+        c.id = -1;
+
+        c.name = "";
+
+        c.country = "";
+
+        c.population = -1;
+
+        c.countryCode = "";
+
+    }
+
+    @Test
+    void createCapitalCity()
+    {
+        City c = new City();
+
+
+        c.id = 12345;
+
+        c.name = "Bilbao";
+
+        c.country = "Basque Country";
+
+        c.population = 3452671;
+
+        c.countryCode = "54321";
+
+        c.district = "Bizkaia";
+
+    }
+
 }
