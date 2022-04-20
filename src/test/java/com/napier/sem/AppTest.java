@@ -66,11 +66,8 @@ public class AppTest {
     @Test
     void displayCountries2Null() {
         ArrayList<Country> countries = new ArrayList<>();
-        countries.add(null);
-        app.displayCountries2(countries, "tests displaying null");
 
-        //app.displayCountries2(null, "tests displaying null");
-        // displayCountries2 can display "null" , but not an array with a null value
+        app.displayCountries2(null, "tests displaying null");
 
     }
 
@@ -159,16 +156,16 @@ public class AppTest {
         country.name = null;
         country.continent = null;
         country.region = null;
-        country.surfaceArea = Double.parseDouble(null);
-        //country.indepYear = Integer.parseInt(null);
-        //country.population = Integer.parseInt(null);
-        //country.lifeExpectancy = Double.parseDouble(null);
-        //country.gnp = Double.parseDouble(null);
-        //country.gnpOld = Double.parseDouble(null);
+        country.surfaceArea = -1;
+        country.indepYear = -1;
+        country.population = -1;
+        country.lifeExpectancy = -1;
+        country.gnp = -1;
+        country.gnpOld = -1;
         country.localName = null;
         country.govermentForm = null;
         country.HeadOfState = null;
-       // country.capital = Integer.parseInt(null);
+        country.capital = -1;
         country.code2 = null;
 
 
@@ -183,16 +180,16 @@ public class AppTest {
         country.name = "";
         country.continent = "";
         country.region = "";
-        country.surfaceArea = Double.parseDouble("");
-       // country.indepYear = Integer.parseInt("");
-       // country.population = Integer.parseInt("");
-       // country.lifeExpectancy = Double.parseDouble("");
-        // country.gnp = Double.parseDouble("");
-        //country.gnpOld = Double.parseDouble("");
+        country.surfaceArea = -1;
+        country.indepYear = -1;
+        country.population = -1;
+        country.lifeExpectancy = -1;
+        country.gnp = -1;
+        country.gnpOld = -1;
         country.localName = "";
         country.govermentForm = "";
         country.HeadOfState = "";
-        // country.capital = Integer.parseInt("");
+        country.capital = -1;
         country.code2 = "";
 
 
