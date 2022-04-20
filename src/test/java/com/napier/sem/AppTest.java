@@ -56,13 +56,13 @@ public class AppTest
     {
         Capital c = new Capital();
 
-       //c.id = Integer.parseInt(null);
+        c.id = -1;
 
         c.name = null;
 
         c.country = null;
 
-        c.population = Integer.parseInt(null);
+        c.population = -1;
 
         c.countryCode = null;
 
@@ -73,13 +73,13 @@ public class AppTest
     {
         Capital c = new Capital();
 
-        //c.id = Integer.parseInt("");
+        c.id = -1;
 
         c.name = "";
 
         c.country = "";
 
-        c.population = Integer.parseInt("");
+        c.population = -1;
 
         c.countryCode = "";
 
