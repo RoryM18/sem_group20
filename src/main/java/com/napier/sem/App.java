@@ -78,125 +78,125 @@ public class App
         a.displayCapitals(capitals, "Query 6: return an arraylist of the capital cities within the world by a region");
 
 
-        /**Name: getCities / Query 1
+        /**Name: getCities / Query 7
          *description: To return an arraylist of the cities within the world database
          *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return an arraylist of the City class      */
         ArrayList<City> cities = a.getCities();
-        a.displayCities(cities, "Query 1: return an arraylist of the cities within the world");
+        a.displayCities(cities, "Query 7: return an arraylist of the cities within the world");
 
 
 
-        /**Name: getCitiesByAContinent / Query 2
+        /**Name: getCitiesByAContinent / Query 8
          *description: To return an arraylist of the cities within a Continent
          * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return an arraylist of the city class      */
         cities = a.getCitiesByAContinent();
         // Invoke a function to display the results of the query to the user
-        a.displayCities(cities, "Query 2: return an arraylist of the cities within a continent");
+        a.displayCities(cities, "Query 8: return an arraylist of the cities within a continent");
 
 
-        /**Name: getCitiesByRegion / Query 3
+        /**Name: getCitiesByRegion / Query 9
          *description: To return an arraylist of the cities within a region
          * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return an arraylist of the city class      */
         cities = a.getCitiesByRegion();
         // Invoke a function to display the results of the query to the user
-        a.displayCities(cities, "Query 3: return an arraylist of the cities within a region");
+        a.displayCities(cities, "Query 9: return an arraylist of the cities within a region");
 
 
-        /**Name: getCitiesByCountry / Query 4
+        /**Name: getCitiesByCountry / Query 10
          *description: To return an arraylist of the cities within a Country
          * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return an arraylist of the city class      */
         cities = a.getCitiesByACountry();
         // Invoke a function to display the results of the query to the user
-        a.displayCities(cities, "Query 4: return an arraylist of the cities within a Country");
+        a.displayCities(cities, "Query 10: return an arraylist of the cities within a Country");
 
 
-        /**Name: getCitiesByDistrict / Query 5
+        /**Name: getCitiesByDistrict / Query 11
          *description: To return an arraylist of the cities within a distric
          * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return an arraylist of the city class      */
         cities = a.getCitiesByADistrict();
         // Invoke a function to display the results of the query to the user
-        a.displayCities(cities, "Query 5: return an arraylist of the cities within a District");
+        a.displayCities(cities, "Query 11: return an arraylist of the cities within a District");
 
-        /**Name: getLargestPopulatedCitiesFromWorld / Query 6
+        /**Name: getLargestPopulatedCitiesFromWorld / Query 12
          *description: To return an arraylist of the selected number of cities within world
          * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return an arraylist of the city class      */
         cities = a.getLargestPopulatedCitiesFromWorld();
         // Invoke a function to display the results of the query to the user
-        a.displayCities(cities, "Query 6: return an arraylist of the selected number of cities within world");
+        a.displayCities(cities, "Query 12: return an arraylist of the selected number of cities within world");
 
-        /**Name: getLargestPopulatedCitiesFromAContinent / Query 7
+        /**Name: getLargestPopulatedCitiesFromAContinent / Query 13
          *description: To return an arraylist of the selected number of cities within world of a selected continent
          * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return an arraylist of the city class      */
         cities = a.getLargestPopulatedCitiesFromAContinent();
         // Invoke a function to display the results of the query to the user
-        a.displayCities(cities, "Query 7: return an arraylist of the selected number of cities within world of a selected continent");
+        a.displayCities(cities, "Query 13: return an arraylist of the selected number of cities within world of a selected continent");
 
-        /**Name: getLargestPopulatedCitiesFromARegion / Query 8
+        /**Name: getLargestPopulatedCitiesFromARegion / Query 14
          *description: To return an arraylist of the selected number of cities within world of a selected Region
          * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return an arraylist of the city class      */
         cities = a.getLargestPopulatedCitiesFromARegion();
         // Invoke a function to display the results of the query to the user
-        a.displayCities(cities, "Query 8: return an arraylist of the selected number of cities within world of a selected Region");
+        a.displayCities(cities, "Query 14: return an arraylist of the selected number of cities within world of a selected Region");
 
-        /**Name: getLargestPopulatedCitiesFromACountry / Query 9
+        /**Name: getLargestPopulatedCitiesFromACountry / Query 15
          *description: To return an arraylist of the selected number of cities within world of a selected Country
          * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return an arraylist of the city class      */
         cities = a.getLargestPopulatedCitiesFromACountry();
         // Invoke a function to display the results of the query to the user
-        a.displayCities(cities, "Query 9: return an arraylist of the selected number of cities within world of a selected Country");
+        a.displayCities(cities, "Query 15: return an arraylist of the selected number of cities within world of a selected Country");
 
-        /**Name: getLargestPopulatedCitiesFromADistrict / Query 10
+        /**Name: getLargestPopulatedCitiesFromADistrict / Query 16
          *description: To return an arraylist of the selected number of cities within world of a selected District
          * @param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return an arraylist of the city class      */
         cities = a.getLargestPopulatedCitiesFromADistrict();
         // Invoke a function to display the results of the query to the user
-        a.displayCities(cities, "Query 10: return an arraylist of the selected number of cities within world of a selected District");
+        a.displayCities(cities, "Query 16: return an arraylist of the selected number of cities within world of a selected District");
 
 
-        //Query 1: All the countries in the world organised by largest population to smallest.
+        //Query 17: All the countries in the world organised by largest population to smallest.
         // invoke a functinon to get the countris as an arraylist
         ArrayList<Country> countries = a.getCountries();
         // invoke a function to display the results of the query to the user
-        a.displayCountries(countries, "Query 1: All the countries in the world organised by largest population to smallest. ");
+        a.displayCountries(countries, "Query 17: All the countries in the world organised by largest population to smallest. ");
         countries.clear();
 
 
-        //Query 2: All the countries in a continent organised by largest population to smallest.
+        //Query 18: All the countries in a continent organised by largest population to smallest.
         // invoke a function to get the countries as an arraylist
         countries = a.getCountriesFromContinent();
-        a.displayCountries(countries, "Query 2: All the countries in a continent organised by largest population to smallest.");
+        a.displayCountries(countries, "Query 18: All the countries in a continent organised by largest population to smallest.");
 
 
-        //Query 3: All the countries in a region organised by largest population to smallest.
+        //Query 19: All the countries in a region organised by largest population to smallest.
         // invoke a function to get the countries as an arraylist
         countries = a.getCountriesFromRegion();
-        a.displayCountries(countries, "Query 3: All countries in a region by largest population to smallest.");
+        a.displayCountries(countries, "Query 19: All countries in a region by largest population to smallest.");
 
 
-        //Query 4: Show X number of countries in the world with the largest population
+        //Query 20: Show X number of countries in the world with the largest population
         // invoke a function to get the countries as an arraylist
         countries = a.getLargestPopulatedCountriesFromWorld();
-        a.displayCountries(countries, "Query 4: Show X number of countries in the world with the largest population");
+        a.displayCountries(countries, "Query 20: Show X number of countries in the world with the largest population");
 
-        //Query 5: Show X number of countries in the Continent with the largest population
+        //Query 21: Show X number of countries in the Continent with the largest population
         // invoke a function to get the countries as an arraylist
         countries = a.getLargestPopulatedCountriesFromContinent();
-        a.displayCountries(countries, "Query 5: Show X number of countries in the Continent with the largest population");
+        a.displayCountries(countries, "Query 21: Show X number of countries in the Continent with the largest population");
 
-        //Query 6: Show X number of countries in the Region with the largest population
+        //Query 22: Show X number of countries in the Region with the largest population
         // invoke a function to get the countries as an arraylist
         countries = a.getLargestPopulatedCountriesFromRegion();
-        a.displayCountries(countries, "Query 6: Show X number of countries in the Region with the largest population");
+        a.displayCountries(countries, "Query 22 : Show X number of countries in the Region with the largest population");
 
 
 
@@ -204,96 +204,96 @@ public class App
 
         String details ="";
 
-        /**Name: getWolrdPopulation / Query 1
+        /**Name: getWolrdPopulation / Query 23
          *description: To return the report on the population the world
          *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return a string on the report    */
         details = a.getWorldPopulation();
-        a.displayPopulation(details, "Query 1: return the report on the population of the world");
+        a.displayPopulation(details, "Query 23: return the report on the population of the world");
 
 
-        /**Name: getContinentPopulation / Query 2
+        /**Name: getContinentPopulation / Query 24
          *description: To return the report on the population a continent
          *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return a string on the report    */
         details = a.getContinentPopulation();
-        a.displayPopulation(details, "Query 2: return the report on the population of a continent");
+        a.displayPopulation(details, "Query 24: return the report on the population of a continent");
 
 
 
-        /**Name: getRegionPopulation / Query 3
+        /**Name: getRegionPopulation / Query 25
          *description: To return the report on the population a Region
          *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return a string on the report    */
         details = a.getRegionPopulation();
-        a.displayPopulation(details, "Query 3: return the report on the population of a region");
+        a.displayPopulation(details, "Query 25: return the report on the population of a region");
 
 
-        /**Name: getCountryPopulation / Query 4
+        /**Name: getCountryPopulation / Query 26
          *description: To return the report on the population a country
          *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return a string on the report    */
         details = a.getCountryPopulation();
-        a.displayPopulation(details, "Query 4: return the report on the population of a country");
+        a.displayPopulation(details, "Query 26: return the report on the population of a country");
 
-        /**Name: getDistrictPopulation / Query 5
+        /**Name: getDistrictPopulation / Query 27
          *description: To return the report on the population a district
          *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return a string on the report    */
         details = a.getDistrictPopulation();
-        a.displayPopulation(details, "Query 5: return the report on the population of a district");
+        a.displayPopulation(details, "Query 27: return the report on the population of a district");
 
 
 
-        /**Name: getOnlyWorldPopulation/ Query 6
+        /**Name: getOnlyWorldPopulation/ Query 28
          *description: To return the world population
          *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return a string on population   */
         details =  a.getOnlyWorldPopulation();
-        a.displayPopulation(details, "Query 6: return the population of the world");
+        a.displayPopulation(details, "Query 28: return the population of the world");
 
 
-        /**Name: getOnlyContinentPopulation/ Query 7
+        /**Name: getOnlyContinentPopulation/ Query 29
          *description: To return a continents population
          *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return a string on population   */
         details =  a.getOnlyContinentPopulation();
-        a.displayPopulation(details, "Query 7: return the population of a continent");
+        a.displayPopulation(details, "Query 29: return the population of a continent");
 
-        /**Name: getOnlyRegionPopulation/ Query 8
+        /**Name: getOnlyRegionPopulation/ Query 30
          *description: To return a region population
          *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return a string on population   */
         details =  a.getOnlyRegionPopulation();
-        a.displayPopulation(details, "Query 8: return the population of a region");
+        a.displayPopulation(details, "Query 30: return the population of a region");
 
 
-        /**Name: getOnlyCountryPopulation/ Query 9
+        /**Name: getOnlyCountryPopulation/ Query 31
          *description: To return a country population
          *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
          * @return a string on population   */
         details =  a.getOnlyCountryPopulation();
-        a.displayPopulation(details, "Query 9: return the population of a country");
+        a.displayPopulation(details, "Query 31: return the population of a country");
 
 
 
-/**Name: getOnlyDistrictPopulation/ Query 10
+/**Name: getOnlyDistrictPopulation/ Query 32
  *description: To return a distrcits population
  *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
  * @return a string on population   */
         details =  a.getOnlyDistrictPopulation();
-        a.displayPopulation(details, "Query 10: return the population of a district");
+        a.displayPopulation(details, "Query 32: return the population of a district");
 
 
 
 
 
-/**Name: getLanguageReport
+/**Name: getLanguageReport //Query 33
  *description: return number of people who speak the following the following languages ('Chinese','Hindi','English','Spanish','Arabic') from greatest number to smallest, including the percentage of the world population
  *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
  * @return a string on the report    */
       details = a.getLanguageReport();
-        a.displayLanguage(details, "return number of people who speak the following the following languages ('Chinese','Hindi','English','Spanish','Arabic') from greatest number to smallest, including the percentage of the world population:");
+        a.displayLanguage(details, "Query 33 :return number of people who speak the following the following languages ('Chinese','Hindi','English','Spanish','Arabic') from greatest number to smallest, including the percentage of the world population:");
 
 
 
