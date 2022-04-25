@@ -10,6 +10,13 @@ This is group 20 read me file for the course work project
 
 [![codecov](https://codecov.io/gh/RoryM18/sem_group20/branch/master/graph/badge.svg?token=B14FVGNZ0Z)](https://codecov.io/gh/RoryM18/sem_group20) Code coverage badge
 
+
+
+
+32/32 of the requirements have been met (%100). 
+
+
+
 | ID  | Name                                                                                                                                                                      | Met | Screenshot |
 |:---:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---:|------------|
 | 1   | All the capital cities in the world organised by largest population to smallest.                                                                                          | Yes | ![alt text](query1.png "Query 1")           |
