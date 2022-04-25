@@ -6,7 +6,7 @@ This is group 20 read me file for the course work project
 [![codecov](https://codecov.io/gh/RoryM18/sem_group20/branch/develop/graph/badge.svg?token=B14FVGNZ0Z)](https://codecov.io/gh/RoryM18/sem_group20)
 | ID  | Name                                                                                                                                                                      | Met | Screenshot |
 |:---:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---:|------------|
-| 1   | All the capital cities in the world organised by largest population to smallest.                                                                                          | Yes |            |
+| 1   | All the capital cities in the world organised by largest population to smallest.                                                                                          | Yes | ![alt text](query1.png "Query 1")           |
 | 2   | All the capital cities in a continent organised by largest population to smallest.                                                                                        | Yes |            |
 | 3   | All the capital cities in a region organised by largest to smallest.                                                                                                      | Yes |            |
 | 4   | The top N populated capital cities in the world where N is provided by the user.                                                                                          | Yes |            |
