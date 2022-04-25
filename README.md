@@ -6,12 +6,12 @@ This is group 20 read me file for the course work project
 [![codecov](https://codecov.io/gh/RoryM18/sem_group20/branch/develop/graph/badge.svg?token=B14FVGNZ0Z)](https://codecov.io/gh/RoryM18/sem_group20)
 | ID  | Name                                                                                                                                                                      | Met | Screenshot |
 |:---:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---:|------------|
-| 17  | All the countries in the world organised by largest population to smallest.                                                                                                | Yes |            |
-| 18  | All the countries in a continent organised by largest population to smallest.                                                                                              | Yes |            |
-| 19  | All the countries in a region organised by largest population to smallest.                                                                                                | Yes |            |
-| 20  | The top X populated countries in the world where X is provided by the user.                                                                                                | Yes |            |
-| 21  | The top X populated countries in a continent where X is provided by the user.                                                                                              | Yes |            |
-| 22  | The top X populated countries in a region where X is provided by the user.                                                                                                | Yes |            |
+| 1   | All the capital cities in the world organised by largest population to smallest.                                                                                          | Yes |            |
+| 2   | All the capital cities in a continent organised by largest population to smallest.                                                                                        | Yes |            |
+| 3   | All the capital cities in a region organised by largest to smallest.                                                                                                      | Yes |            |
+| 4   | The top N populated capital cities in the world where N is provided by the user.                                                                                          | Yes |            |
+| 5   | The top N populated capital cities in a continent where N is provided by the user.                                                                                        | Yes |            |
+| 6   | The top N populated capital cities in a region where N is provided by the user.                                                                                            | Yes |            |
 | 7   | All the cities in the world organised by largest population to smallest.                                                                                                  | Yes |            |
 | 8   | All the cities in a continent organised by largest population to smallest.                                                                                                | Yes |            |
 | 9   | All the cities in a region organised by largest population to smallest.                                                                                                    | Yes |            |
@@ -22,12 +22,12 @@ This is group 20 read me file for the course work project
 | 14  | The top X populated cities in a region where X is provided by the user.                                                                                                    | Yes |            |
 | 15  | The top X populated cities in a country where X is provided by the user.                                                                                                  | Yes |            |
 | 16  | The top X populated cities in a district where X is provided by the user.                                                                                                  | Yes |            |
-| 1   | All the capital cities in the world organised by largest population to smallest.                                                                                          | Yes |            |
-| 2   | All the capital cities in a continent organised by largest population to smallest.                                                                                        | Yes |            |
-| 3   | All the capital cities in a region organised by largest to smallest.                                                                                                      | Yes |            |
-| 4   | The top N populated capital cities in the world where N is provided by the user.                                                                                          | Yes |            |
-| 5   | The top N populated capital cities in a continent where N is provided by the user.                                                                                        | Yes |            |
-| 6   | The top N populated capital cities in a region where N is provided by the user.                                                                                            | Yes |            |
+| 17  | All the countries in the world organised by largest population to smallest.                                                                                                | Yes |            |
+| 18  | All the countries in a continent organised by largest population to smallest.                                                                                              | Yes |            |
+| 19  | All the countries in a region organised by largest population to smallest.                                                                                                | Yes |            |
+| 20  | The top X populated countries in the world where X is provided by the user.                                                                                                | Yes |            |
+| 21  | The top X populated countries in a continent where X is provided by the user.                                                                                              | Yes |            |
+| 22  | The top X populated countries in a region where X is provided by the user.                                                                                                | Yes |            |
 | 24  | The population of people, people living in cities, and people not living in cities in each continent.                                                                      | Yes |            |
 | 25  | The population of people, people living in cities, and people not living in cities in each region.                                                                        | Yes |            |
 | 26  | The population of people, people living in cities, and people not living in cities in each country.                                                                        | Yes |            |
