@@ -117,8 +117,13 @@ public class App
         details =  a.getOnlyDistrictPopulation();
         a.displayCities(details, "Query 10: return the population of a district");
 
-
-
+/**Name: getOnlyCityPopulation/ Query 34
+ *description: To return a city population
+ *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
+ * @return a string on population   */
+        details =  a.getOnlyCityPopulation();
+        a.displayCities(details, "Query 34: return the population of a city");
+        
         a.disconnect();
 
     }
