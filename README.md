@@ -36,5 +36,5 @@ This is group 20 read me file for the course work project
 | 30  | The total population of the region                                                                                                                                        | Yes |            |
 | 31  | The total population of the country                                                                                                                                        | Yes |            |
 | 32  | The total population of the district                                                                                                                                      | Yes |            |
-| 26  | The total population of a city                                                                                                                                            | Yes |            |
+| 34  | The total population of a city                                                                                                                                            | Yes |            |
 | 33  | The number of people who speak the following languages Chinese,English,Hindi,Spanish,Arabic from greatest number to smallest and the percentage of the world population | Yes |            |
