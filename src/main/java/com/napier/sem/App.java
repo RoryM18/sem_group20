@@ -847,7 +847,49 @@ public class App
 
     }
 
+ /**
+     * Name: getOnlyCityPopulation
+     * description: To return the population of the world
+     * and intellij / the program.
+     * @return
+     */
+    public String getOnlyCityPopulation()
+    {
+        String details = "Amsterdam, ";
+        BigDecimal tp = new BigDecimal(0);
 
+        try
+        {
+
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT SUM(city.Population) FROM city WHERE Name = 'Amsterdam'";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return countries
+
+
+            while (rset.next())
+            {
+                //population of the city
+                tp = rset.getBigDecimal("SUM(city.Population)");
+            }
+
+
+            details = details + tp;
+
+            return details;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get total Population details");
+            return details;
+        }
+
+    }
 
     public void displayCities(String details, String info)
     {
