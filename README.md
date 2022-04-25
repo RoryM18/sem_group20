@@ -4,7 +4,7 @@ This is group 20 read me file for the course work project
 
 [![LICENSE](https://img.shields.io/github/license/RoryM18/sem.svg?style=flat-square)](https://github.com/RoryM18/sem_group20/blob/master/LICENSE) License badge
 
-[![Releases](https://img.shields.io/github/release/RoryM18/sem_group20/all.svg?style=flat-square)](https://github.com/RoryM18/sem/releases) Release badge
+[![Releases](https://img.shields.io/github/release/RoryM18/sem_group20/all.svg?style=flat-square)](https://github.com/RoryM18/sem_group20/releases) Release badge
 
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/RoryM18/sem_group20/A%20workflow%20for%20my%20Hello%20World%20App/develop) Build status for develop branch
 
