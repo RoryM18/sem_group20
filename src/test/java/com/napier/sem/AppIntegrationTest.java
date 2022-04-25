@@ -512,4 +512,98 @@ public class AppIntegrationTest {
             }
         }
     }
+
+
+
+    @Test
+    void getWorldPopulation()
+    {
+        String details = app.getWorldPopulation();
+        assertEquals(details, "World, 6078749450, 23.52%, 76.48%");
+    }
+
+    @Test
+    void getContinentPopulation()
+    {
+        String details = app.getContinentPopulation();
+        assertEquals(details, "Asia, 3705025700, 18.83%, 81.17%");
+    }
+    @Test
+    void getRegionPopulation()
+    {
+        String details = app.getRegionPopulation();
+        assertEquals(details, "Caribbean, 38140000, 29.02%, 70.98%");
+    }
+
+    @Test
+    void getCountryPopulation()
+    {
+        String details = app.getCountryPopulation();
+        assertEquals(details, "India, 1013662000, 12.16%, 87.84%");
+    }
+
+    @Test
+    void getDistrictPopulation()
+    {
+        String details = app.getDistrictPopulation();
+        assertEquals(details, "New York,  8958085, 100.00%, 0.00%");
+    }
+
+    @Test
+    void getOnlyWorldPopulation()
+    {
+        String details = app.getOnlyWorldPopulation();
+        assertEquals(details, "World, 6078749450");
+    }
+
+    @Test
+    void getOnlyContinentPopulation()
+    {
+        String details = app.getOnlyContinentPopulation();
+        assertEquals(details, "Asia, 3705025700");
+    }
+
+    @Test
+    void getOnlyRegionPopulation()
+    {
+        String details = app.getOnlyRegionPopulation();
+        assertEquals(details, "Carribean, 38140000");
+    }
+
+    @Test
+    void getOnlyCountryPopulation()
+    {
+        String details = app.getOnlyCountryPopulation();
+        assertEquals(details, "India, 1013662000");
+    }
+
+    @Test
+    void getOnlyDistrictPopulation()
+    {
+        String details = app.getOnlyDistrictPopulation();
+        assertEquals(details, "New York, 8958085");
+    }
+
+    @Test
+    void getOnlyCityPopulation()
+    {
+        String details = app.getOnlyCityPopulation();
+        assertEquals(details, "Amsterdam, 731200");
+    }
+
+
+    @Test
+    void getLanguageReport() {
+        String details = app.getLanguageReport();
+
+        //This is cheating a bit but idk another way of doing it :(
+
+        String[] detailsArray = details.split("%\n");
+
+        assertEquals(detailsArray[1], "language: Hindi, 405633070.00000, Percentage of World Population: 6.67300");
+
+
+
+
+    }
 }

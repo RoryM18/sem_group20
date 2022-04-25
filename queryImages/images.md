@@ -1,0 +1,1 @@
+This file contains the images to the queries as evidence.
