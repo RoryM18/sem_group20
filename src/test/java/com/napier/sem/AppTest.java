@@ -318,4 +318,97 @@ public class AppTest
         country.capital = 129;
         country.code2 = "AW";
     }
+
+
+
+    @Test
+    void displayCitiesDetailsEmpty() {
+        String details = "";
+        app.displayLanguage(details, "tests displaying empty");
+    }
+
+    @Test
+    void displayCitiesDetailsNull() {
+        String details = null;
+        app.displayLanguage(details, "tests displaying null");
+    }
+
+    @Test
+    void displayCitiesDetails() {
+        String details = app.getLanguageReport();
+
+        app.displayLanguage(details, "tests displaying a test city");
+    }
+
+    @Test
+    void createNullCountryLanguage()
+    {
+        CountryLanguage language = new CountryLanguage();
+
+        language.countryCode = null;
+
+        language.Language = null;
+
+
+        language.isOfficial = null;
+
+        language.percentage = -1;
+
+    }
+
+    @Test
+    void createEmptyCountryLanguage()
+    {
+
+        CountryLanguage language = new CountryLanguage();
+
+        language.countryCode = "";
+
+        language.Language = "";
+
+
+        language.isOfficial = "";
+
+        language.percentage = -1;
+
+
+    }
+
+    @Test
+    void createCapitalLanguage()
+    {
+        CountryLanguage language = new CountryLanguage();
+
+        language.countryCode = "EH";
+
+        language.Language = "Basque";
+
+        language.isOfficial = "Yes";
+
+        language.percentage = 10;
+    }
+
+
+
+
+    @Test
+    void displayPopulationEmpty() {
+        String details = "";
+        String info = "";
+        app.displayPopulation(details,info);
+    }
+
+    @Test
+    void displayPopulationNull() {
+        String details = null;
+        String info = null;
+        app.displayPopulation(details,info);
+    }
+
+    @Test
+    void displayPopulation() {
+        String detail = "Caribbean, 38140000, 29%, 71%";
+        String info = "";
+        app.displayPopulation(detail, info);
+    }
 }
