@@ -288,15 +288,22 @@ public class App
 
 
 
-/**Name: getLanguageReport //Query 33
- *description: return number of people who speak the following the following languages ('Chinese','Hindi','English','Spanish','Arabic') from greatest number to smallest, including the percentage of the world population
- *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
- * @return a string on the report    */
-      details = a.getLanguageReport();
-        a.displayLanguage(details, "Query 33 :return number of people who speak the following the following languages ('Chinese','Hindi','English','Spanish','Arabic') from greatest number to smallest, including the percentage of the world population:");
+        /**Name: getLanguageReport //Query 33
+         *description: return number of people who speak the following the following languages ('Chinese','Hindi','English','Spanish','Arabic') from greatest number to smallest, including the percentage of the world population
+         *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
+         * @return a string on the report    */
+              details = a.getLanguageReport();
+                a.displayLanguage(details, "Query 33 :return number of people who speak the following the following languages ('Chinese','Hindi','English','Spanish','Arabic') from greatest number to smallest, including the percentage of the world population:");
 
 
 
+
+        /**Name: getOnlyCityPopulation/ Query 34
+         *description: To return a city population
+         *@param con - A variable of type 'Connection' called con which uses the connection between the database and intellij / the program.
+         * @return a string on population   */
+                details =  a.getOnlyCityPopulation();
+                a.displayPopulation(details, "Query 34: return the population of a city");
 
 
 
@@ -2280,7 +2287,49 @@ public class App
     }
 
 
+    /**
+     * Name: getOnlyCityPopulation
+     * description: To return the population of the world
+     * and intellij / the program.
+     * @return
+     */
+    public String getOnlyCityPopulation()
+    {
+        String details = "Amsterdam, ";
+        BigDecimal tp = new BigDecimal(0);
 
+        try
+        {
+
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT SUM(city.Population) FROM city WHERE Name = 'Amsterdam'";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return countries
+
+
+            while (rset.next())
+            {
+                //population of the city
+                tp = rset.getBigDecimal("SUM(city.Population)");
+            }
+
+
+            details = details + tp;
+
+            return details;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get total Population details");
+            return details;
+        }
+
+    }
 
     public void displayLanguage(String details, String info) {
         System.out.println(info);
