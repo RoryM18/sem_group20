@@ -22,20 +22,20 @@ public class AppTest
     @Test
     void displayCitiesDetailsEmpty() {
         String details = "";
-        app.displayCitiesDetails(details, "tests displaying empty");
+        app.displayLanguage(details, "tests displaying empty");
     }
 
     @Test
     void displayCitiesDetailsNull() {
         String details = null;
-        app.displayCitiesDetails(details, "tests displaying null");
+        app.displayLanguage(details, "tests displaying null");
     }
 
     @Test
     void displayCitiesDetails() {
         String details = app.getLanguageReport();
 
-        app.displayCitiesDetails(details, "tests displaying a test city");
+        app.displayLanguage(details, "tests displaying a test city");
     }
 
     @Test
