@@ -84,4 +84,11 @@ public class AppIntegrationTest {
         String details = app.getOnlyDistrictPopulation();
         assertEquals(details, "New York, 8958085");
     }
+    
+    @Test
+    void getOnlyCityPopulation()
+    {
+        String details = app.getOnlyCityPopulation();
+        assertEquals(details, "Amsterdam, 731200");
+    }
 }
